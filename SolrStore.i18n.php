@@ -65,6 +65,19 @@ $messages['de-formal'] = array(
 	'solrstore-error' => 'Fehler: Bitte überprüfen Sie die Suchanfrage.',
 );
 
+/** Spanish (Español)
+ * @author Armando-Martin
+ */
+$messages['es'] = array(
+	'solrstore-desc' => 'Buscar propiedades semánticas con la potencia de un motor de búsqueda de texto completo',
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => 'Buscar',
+	'solrstore-error' => 'Error: Compruebe su consulta.',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => 'Por favor, seleccione un conjunto de búsquedas SearchSet',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: Seleccione SearchSet',
+);
+
 /** French (Français)
  * @author Gomoko
  */
