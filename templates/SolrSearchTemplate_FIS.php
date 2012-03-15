@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Dynamic Template 'FIS' -> Example
  *
@@ -6,9 +7,9 @@
  *  with : makeHighlightText and makeHighlightTitle functions
  *  
  * to use this template add this peace of code to LocalSettings.php
- *	
+ * 	
  *  # define Template
- *	$wgSolrTemplate = "_FIS";
+ * 	$wgSolrTemplate = "_FIS";
  * 
  * 
  * @ingroup SolrStore
@@ -28,6 +29,10 @@ class SolrSearchTemplate_FIS {
 	var $mHighlightText = null;
 	var $mHighlightTitle = null;
 	var $mWordCount = null;
+	var $category = null;
+	var $higherdept = null;
+	var $maindept = null;
+	var $methode = null;
 
 	public function applyTemplate( $xml ) {
 		global $wgSolrFields;
@@ -38,7 +43,8 @@ class SolrSearchTemplate_FIS {
 
 		// Bugfix: clear the var!
 		unset( $this->Inhalt_de_t );
-
+		unset( $this->methode );
+		print_r( $xml );
 		// get Size, Wordcound, Date, Inhalt_de_t from XML:		
 		foreach ( $xml->arr as $doc ) {
 			switch ( $doc[ 'name' ] ) {
@@ -63,9 +69,35 @@ class SolrSearchTemplate_FIS {
 				case 'Zuletzt geändert_dt':
 					$this->mDate = $doc->date;
 					break;
-
+				
 				case 'Inhalt de_t':
 					$this->Inhalt_de_t[ ] = $doc->str;
+					break;
+				
+				case 'Inhalt fr_t':
+					$this->Inhalt_de_t[ ] = $doc->str;
+					break;
+				
+				case 'Inhalt en_t':
+					$this->Inhalt_de_t[ ] = $doc->str;
+					break;
+				
+				case 'category':
+					$this->category = $doc->str;
+					break;
+				
+				case 'Higher-Dept_s':
+					$this->higherdept = $doc->str;
+					break;
+				
+				case 'Main-Dept_s':
+					$this->maindept = $doc->str;
+					break;
+				
+				case 'Methode_t':
+					foreach ( $doc->str as $methoden ) {
+						$this->methode[ ] = $methoden;
+					}
 					break;
 			}
 		}
@@ -133,6 +165,38 @@ class SolrSearchTemplate_FIS {
 			$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
 		} else {
 			$this->mHighlightText = "";
+			if ( $this->category == 'Institution' ) {
+				$tmpmaind = 0;
+				if ( $this->maindept != '' ) {
+					$this->mHighlightText = $this->maindept;
+					$tmpmaind = 1;
+				}
+				if ( $this->higherdept != '' ) {
+					if ( $tmpmaind == 1 ) {
+						$this->mHighlightText.="<br>";
+					}
+					$this->mHighlightText.= $this->higherdept;
+				}
+				$textsnip = $this->mHighlightText;
+				$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
+			}
+			if ( $this->category == 'Projekte' ) {
+				$tmpmethode = "";
+				if ( count( $this->methode ) > 0 ) {
+					for ( $i = 0; $i <= count( $this->methode ); $i++ ) {
+						if ( $i == 0 ) {
+							$tmpmethode = "Vorgehensweise: " . $this->methode[ $i ];
+						} else {
+							if ( $this->methode[ $i ] != "" ) {
+								$tmpmethode.=", " . $this->methode[ $i ];
+							}
+						}
+					}
+				}
+
+				$textsnip = $this->mHighlightText = $tmpmethode; // . "->" . count( $this->methode );
+				$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
+			}
 		}
 
 		return $this;
