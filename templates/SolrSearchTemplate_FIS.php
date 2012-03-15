@@ -187,7 +187,7 @@ class SolrSearchTemplate_FIS {
 						if ( isset( $this->methode[ $i ] ) ) {
 							if ( $this->methode[ $i ] != "keine Angabe" ) { // FRAGEN !!
 								if ( $i == 0 ) {
-									$tmpmethode = "Vorgehensweise: " . $this->methode[ $i ];
+									$tmpmethode = "Vorgehensweise: " . $this->methode[ $i ]; // Wenn kein Inhalt ausgegeben wird, nehme Vorgehensweise 
 								} else {
 									if ( isset( $this->methode[ $i ] ) ) {
 										$tmpmethode.=", " . $this->methode[ $i ];
@@ -198,8 +198,8 @@ class SolrSearchTemplate_FIS {
 					}
 				}
 
-				$textsnip = $this->mHighlightText = $tmpmethode; // . "->" . count( $this->methode );
-				$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
+				//$textsnip = $this->mHighlightText = $tmpmethode; 
+				//$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
 			}
 		}
 
