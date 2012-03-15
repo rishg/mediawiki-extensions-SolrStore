@@ -44,7 +44,6 @@ class SolrSearchTemplate_FIS {
 		// Bugfix: clear the var!
 		unset( $this->Inhalt_de_t );
 		unset( $this->methode );
-		print_r( $xml );
 		// get Size, Wordcound, Date, Inhalt_de_t from XML:		
 		foreach ( $xml->arr as $doc ) {
 			switch ( $doc[ 'name' ] ) {
@@ -69,31 +68,31 @@ class SolrSearchTemplate_FIS {
 				case 'Zuletzt geändert_dt':
 					$this->mDate = $doc->date;
 					break;
-				
+
 				case 'Inhalt de_t':
 					$this->Inhalt_de_t[ ] = $doc->str;
 					break;
-				
+
 				case 'Inhalt fr_t':
 					$this->Inhalt_de_t[ ] = $doc->str;
 					break;
-				
+
 				case 'Inhalt en_t':
 					$this->Inhalt_de_t[ ] = $doc->str;
 					break;
-				
+
 				case 'category':
 					$this->category = $doc->str;
 					break;
-				
+
 				case 'Higher-Dept_s':
 					$this->higherdept = $doc->str;
 					break;
-				
+
 				case 'Main-Dept_s':
 					$this->maindept = $doc->str;
 					break;
-				
+
 				case 'Methode_t':
 					foreach ( $doc->str as $methoden ) {
 						$this->methode[ ] = $methoden;
@@ -184,11 +183,16 @@ class SolrSearchTemplate_FIS {
 				$tmpmethode = "";
 				if ( count( $this->methode ) > 0 ) {
 					for ( $i = 0; $i <= count( $this->methode ); $i++ ) {
-						if ( $i == 0 ) {
-							$tmpmethode = "Vorgehensweise: " . $this->methode[ $i ];
-						} else {
-							if ( $this->methode[ $i ] != "" ) {
-								$tmpmethode.=", " . $this->methode[ $i ];
+
+						if ( isset( $this->methode[ $i ] ) ) {
+							if ( $this->methode[ $i ] != "keine Angabe" ) { // FRAGEN !!
+								if ( $i == 0 ) {
+									$tmpmethode = "Vorgehensweise: " . $this->methode[ $i ];
+								} else {
+									if ( isset( $this->methode[ $i ] ) ) {
+										$tmpmethode.=", " . $this->methode[ $i ];
+									}
+								}
 							}
 						}
 					}
