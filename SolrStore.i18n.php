@@ -47,13 +47,14 @@ $messages['be-tarask'] = array(
 /** German (Deutsch)
  * @author Kghbln
  * @author SBachenberg
+ * @author Schuellersa
  */
 $messages['de'] = array(
 	'solrstore-desc' => 'Ermöglicht die Suche nach semantischen Attributen mit einer Volltextsuchmaschine',
 	'solrsearch' => 'SolrSuche',
 	'solrsearch-title' => 'Suche',
 	'solrstore-error' => 'Fehler: Bitte überprüfe die Suchanfrage.',
-	'solrstore-searchFieldSets' => 'SolrSuche',
+	'solrstore-searchFieldSets' => 'Suche',
 	'solrstore-searchFieldSets-select' => 'Bitte wähle ein SearchSet aus',
 	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet Auswahl',
 );
