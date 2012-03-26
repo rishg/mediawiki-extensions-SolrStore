@@ -164,22 +164,30 @@ class SolrSearchTemplate_FIS {
 			$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
 		} else {
 			$this->mHighlightText = "";
-			if ( $this->category == 'Institution' ) {
+			if ( $this->category == 'Institution' ) { // Searchresult for Institutionen
 				$tmpmaind = 0;
-				if ( $this->maindept != '' ) {
+				
+				// Wenn Fakultaet / Fachbereich == Universitaet 
+				// dammit das ganze nur 1x ausgegeben wird
+				if (strtolower($this->maindept) == strtolower($this->higherdept) && $this->higherdept !="") {
 					$this->mHighlightText = $this->maindept;
+					$tmpmaind=2;
+				}
+
+				if ( $this->maindept != '' && $tmpmaind!=2) {
+					$this->mHighlightText = $this->maindept;	// Fakultaet / Fachbereich
 					$tmpmaind = 1;
 				}
-				if ( $this->higherdept != '' ) {
+				if ( $this->higherdept != '' && $tmpmaind!=2) {
 					if ( $tmpmaind == 1 ) {
-						$this->mHighlightText.="<br>";
+						$this->mHighlightText.="<br>"; 	// Wenn Fakultaet nicht leer (umbruch)
 					}
-					$this->mHighlightText.= $this->higherdept;
+					$this->mHighlightText.= $this->higherdept;	// Ubiversitaet
 				}
 				$textsnip = $this->mHighlightText;
 				$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
 			}
-			if ( $this->category == 'Projekte' ) {
+			if ( $this->category == 'Projekte' ) { // Searchresult for Projekte
 				$tmpmethode = "";
 				if ( count( $this->methode ) > 0 ) {
 					for ( $i = 0; $i <= count( $this->methode ); $i++ ) {
