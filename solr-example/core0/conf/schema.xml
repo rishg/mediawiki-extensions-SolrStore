@@ -445,7 +445,7 @@
    <field name="name" type="text" indexed="true" stored="true"  /> 
    <field name="von" type="date" indexed="true" stored="true"  /> 
    <field name="bis" type="date" indexed="true" stored="true"  /> 
-   <field name="category" type="text" indexed="true" stored="true"  />
+   <field name="category" type="text" indexed="true" stored="true" multiValued="true"/>/>
    <field name="id" type="sint" indexed="true" stored="true"  /> 
    <field name="institution" type="text" indexed="true" stored="true" multiValued="true"/>
    <field name="person" type="text" indexed="true" stored="true" multiValued="true"/>
@@ -510,7 +510,7 @@
         EXAMPLE:  name="*_i" will match any field ending in _i (like myid_i, z_i)
         Longer patterns will be matched first.  if equal size patterns
         both match, the first appearing in the schema will be used.  -->
-   <dynamicField name="*_i"  type="int"    indexed="true"  stored="true" multiValued="true"/>
+   <dynamicField name="*_i"  type="float"    indexed="true"  stored="true" multiValued="true"/>
    <dynamicField name="*_s"  type="string_ci"  indexed="true"  stored="true" multiValued="true"/>
    <dynamicField name="*_l"  type="long"   indexed="true"  stored="true" multiValued="true"/>
    <dynamicField name="*_t"  type="text"    indexed="true"  stored="true" multiValued="true"/>
@@ -524,8 +524,8 @@
    <dynamicField name="*_tmax"  type="alphaOnlySort"  indexed="true" />
    <dynamicField name="*_smin"  type="alphaOnlySort"  indexed="true" />
    <dynamicField name="*_smax"  type="alphaOnlySort"  indexed="true" />
-   <dynamicField name="*_imin"  type="int"    indexed="true"  />
-   <dynamicField name="*_imax"  type="int"    indexed="true"  />
+   <dynamicField name="*_imin"  type="float"    indexed="true"  />
+   <dynamicField name="*_imax"  type="float"    indexed="true"  />
    <dynamicField name="*_dtmin" type="date"    indexed="true"/>
    <dynamicField name="*_dtmax" type="date"    indexed="true"/>
    
