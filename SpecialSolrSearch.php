@@ -560,7 +560,7 @@ class SpecialSolrSearch extends SpecialPage {
 					) ) . "\n";
 			$out .= '</td></tr>';
 		}
-		$out .= '<table>';
+		$out .= '</table>';
 		$out .= Xml::submitButton( wfMsg( 'searchbutton' ) ) . "\n";
 		return $out . $this->didYouMeanHtml;
 	}
