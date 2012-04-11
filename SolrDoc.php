@@ -24,8 +24,7 @@ class SolrDoc {
 	 * @param $value String: value of the field
 	 */
 	public function addField( $name, $value ) {
-		$value = preg_replace('/<|>/msu', '',$value);
-		$this->output .= '<field name="' . $name . '">' . $value . '</field>';
+		$this->output .= '<field name="' .  Sanitizer::normalizeCharReferences ( $name ) . '">' . Sanitizer::normalizeCharReferences ( $value ) . '</field>';
 	}
 
 	/**
