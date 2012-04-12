@@ -1,4 +1,5 @@
 <?php
+
 /**
  * File holding the SolrDoc class
  *
@@ -13,9 +14,10 @@
  * @ingroup SolrStore
  */
 class SolrDoc {
+
 	private $output;
-	private $min = array();
-	private $max = array();
+	private $min = array( );
+	private $max = array( );
 
 	/**
 	 * Add a field to the SolrDoc
@@ -24,7 +26,7 @@ class SolrDoc {
 	 * @param $value String: value of the field
 	 */
 	public function addField( $name, $value ) {
-		$this->output .= '<field name="' .  Sanitizer::normalizeCharReferences ( $name ) . '">' . Sanitizer::normalizeCharReferences ( $value ) . '</field>';
+		$this->output .= '<field name="' . strip_tags( $name ) . '">' . strip_tags( $value ) . '</field>';
 	}
 
 	/**
@@ -36,31 +38,32 @@ class SolrDoc {
 	 */
 	public function addSortField( $name, $value ) {
 		// Does a min/max field with this name exist?
-		if ( isset( $this->min[$name] ) && isset( $this->max[$name] ) ) {
-			if ( strcasecmp( $this->min[$name], $value ) > 0 ) {
+		if ( isset( $this->min[ $name ] ) && isset( $this->max[ $name ] ) ) {
+			if ( strcasecmp( $this->min[ $name ], $value ) > 0 ) {
 				// If the new string is less the old one, replace them
-				$this->min[$name] = $value;
+				$this->min[ $name ] = $value;
 			}
-			if ( strcasecmp( $this->max[$name], $value ) < 0 ) {
+			if ( strcasecmp( $this->max[ $name ], $value ) < 0 ) {
 				// If the new string is bigger than old one, replace them
-				$this->max[$name] = $value;
+				$this->max[ $name ] = $value;
 			}
 		} else {
-			$this->min[$name] = $value;
-			$this->max[$name] = $value;
+			$this->min[ $name ] = $value;
+			$this->max[ $name ] = $value;
 		}
 	}
 
 	public function printFields() {
 		$all = $this->output;
 
-		foreach ( $this->min as $name => $value ) {
+		foreach ( $this->min as $name=>$value ) {
 			$all .= '<field name="' . $name . 'min">' . $value . '</field>';
 		}
-		foreach ( $this->max as $name => $value ) {
+		foreach ( $this->max as $name=>$value ) {
 			$all .= '<field name="' . $name . 'max">' . $value . '</field>';
 		}
 
 		return $all;
 	}
+
 }

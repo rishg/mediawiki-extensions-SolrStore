@@ -527,7 +527,6 @@ class SpecialSolrSearch extends SpecialPage {
 			$out .= Xml::tags( 'div', array( 'class'=>'results-info' ), Xml::tags( 'ul', null, Xml::tags( 'li', null, $top ) ) );
 		}
 
-		$out .= Xml::element( 'div', array( 'style'=>'clear:both' ), '', false );
 		$out .= Xml::closeElement( 'div' );
 
 		return $out;
@@ -560,7 +559,7 @@ class SpecialSolrSearch extends SpecialPage {
 					) ) . "\n";
 			$out .= '</td></tr>';
 		}
-		$out .= '</table>';
+		$out .= '<table>';
 		$out .= Xml::submitButton( wfMsg( 'searchbutton' ) ) . "\n";
 		return $out . $this->didYouMeanHtml;
 	}
