@@ -32,7 +32,7 @@ define( 'SC_VERSION', '0.6 Beta' );
 $wgExtensionCredits[ defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other' ][ ] = array(
 	'path'=>__FILE__,
 	'name'=>'SolrStore',
-	'author'=>array( '[https://www.mediawiki.org/wiki/User:F.trott Stephan Gambke]', '[https://www.mediawiki.org/wiki/User:SBachenberg Simon Bachenberg]', 'Sascha Schüller' ),
+	'author'=>array( '[https://www.mediawiki.org/wiki/User:F.trott Stephan Gambke]', '[https://www.mediawiki.org/wiki/User:SBachenberg Simon Bachenberg]', '[https://www.mediawiki.org/wiki/User:schuellersa Sascha Schüller]' ),
 	'url'=>'https://www.mediawiki.org/wiki/Extension:SolrStore',
 	'descriptionmsg'=>'solrstore-desc',
 	'version'=>SC_VERSION,
