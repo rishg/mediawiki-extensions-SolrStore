@@ -348,35 +348,35 @@ class SolrTalker {
 						//	/// Data item ID for SMWDINumber
 						//	const TYPE_NUMBER = 1;
 						$solritem->addField( $propertyName . '_i', $di->getNumber() );
-						$solritem->addSortField( $propertyName . '_i', $di->getNumber() );
+						//$solritem->addSortField( $propertyName . '_i', $di->getNumber() );
 						break;
 
 					case 2:
 						//	/// Data item ID for SMWDIString
 						//	const TYPE_STRING = 2;
 						$solritem->addField( $propertyName . '_t', $di->getString() );
-						$solritem->addSortField( $propertyName . '_t', $di->getString() );
+						//$solritem->addSortField( $propertyName . '_t', $di->getString() );
 						break;
 
 					case 3:
 						//	///  Data item ID for SMWDIBlob
 						//	const TYPE_BLOB = 3;
 						$solritem->addField( $propertyName . '_t', $di->getString() );
-						$solritem->addSortField( $propertyName . '_t', $di->getString() );
+						//$solritem->addSortField( $propertyName . '_t', $di->getString() );
 						break;
 
 					case 4:
 						//	///  Data item ID for SMWDIBoolean
 						//	const TYPE_BOOLEAN = 4;
 						$solritem->addField( $propertyName . '_b', $di->getBoolean() );
-						$solritem->addSortField( $propertyName . '_b', $di->getBoolean() );
+						//$solritem->addSortField( $propertyName . '_b', $di->getBoolean() );
 						break;
 
 					case 5:
 						//	///  Data item ID for SMWDIUri
 						//	const TYPE_URI = 5;
 						$solritem->addField( $propertyName . '_t', $di->getURI() );
-						$solritem->addSortField( $propertyName . '_t', $di->getURI() );
+						//$solritem->addSortField( $propertyName . '_t', $di->getURI() );
 						break;
 
 					case 6:
@@ -384,7 +384,7 @@ class SolrTalker {
 						//	const TYPE_TIME = 6;
 						$date = $di->getYear() . '-' . $di->getMonth() . '-' . $di->getDay() . 'T' . $di->getHour() . ':' . $di->getMinute() . ':' . $di->getSecond() . 'Z';
 						$solritem->addField( $propertyName . '_dt', $date );
-						$solritem->addSortField( $propertyName . '_dt', $date );
+						//$solritem->addSortField( $propertyName . '_dt', $date );
 						break;
 
 					case 7:
@@ -392,7 +392,7 @@ class SolrTalker {
 						//	const TYPE_GEO = 7;
 						// TODO: Implement range Search in SOLR
 						$solritem->addField( $propertyName . '_lat', $di->getLatitude() );
-						$solritem->addField( $propertyName . '_lng', $di->getLongitude() );
+						//$solritem->addField( $propertyName . '_lng', $di->getLongitude() );
 						break;
 
 					case 8:

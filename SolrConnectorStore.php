@@ -1,4 +1,5 @@
 <?php
+
 /**
  * File holding the SolrConnectorStore class
  *
@@ -36,6 +37,19 @@ class SolrConnectorStore extends SMWStore {
 	}
 
 //// / Reading methods /////
+	/**
+	 * Return status of the concept cache for the given concept as an array
+	 * with key 'status' ('empty': not cached, 'full': cached, 'no': not
+	 * cachable). If status is not 'no', the array also contains keys 'size'
+	 * (query size), 'depth' (query depth), 'features' (query features). If
+	 * status is 'full', the array also contains keys 'date' (timestamp of
+	 * cache), 'count' (number of results in cache).
+	 *
+	 * @param $concept Title or SMWWikiPageValue
+	 */
+	public function getConceptCacheStatus( $concept ) {
+		return self::getBaseStore()->getConceptCacheStatus( $concept );
+	}
 
 	/**
 	 * Retrieve all data stored about the given subject and return it as a
@@ -177,9 +191,9 @@ class SolrConnectorStore extends SMWStore {
 		$wgSolrTalker = new SolrTalker();
 		if ( property_exists( $query, 'params' ) &&
 				array_key_exists( 'source', $query->params ) &&
-				$query->params['source'] == 'solr' ) {
+				$query->params[ 'source' ] == 'solr' ) {
 
-			$results = array();
+			$results = array( );
 			$dbkey = '';
 			$namespace = 0;
 			$interwiki = '';
@@ -196,24 +210,23 @@ class SolrConnectorStore extends SMWStore {
 				//	  Benötigt um Festzustellen welches Feld gemeint ist bzw. welche _XYZ Endung
 				//	  an dem Ende des Feldes angehängt wurde.
 				//
-				$sort = $wgSolrTalker->findField( $query->params['sort'], $query->params['order'] );
-				$queryStr .= '&sort%3D' . $sort . '+' . trim( $query->params['order'] );
+				$sort = $wgSolrTalker->findField( $query->params[ 'sort' ], $query->params[ 'order' ] );
+				$queryStr .= '&sort%3D' . $sort . '+' . trim( $query->params[ 'order' ] );
 				//  $queryStr = $queryStr . '&sort=' . trim($sort . '+' . trim($query->params['order']));
 				// TODO: Mehrer Sort parameter auslesen wenn sie vorhanden sind.
 			} //else {
 //				$queryStr = $queryStr . '&sort=pagetitle';
 //			}
-
 			// TODO: Prüfen wieso nur 1 Ergebniss ausgegeben wird
 			echo 'Query Limit:' . $query->getLimit();
 
 			echo ( 'SEARCHRESULT: ' . $xml = $wgSolrTalker->solrQuery( $queryStr, $query->getOffset(), $query->getLimit() ) );
 			echo '<br />';
 			// TODO: Move this code to parseSolrResult
-			$numFound = $xml->result['numFound'];
+			$numFound = $xml->result[ 'numFound' ];
 			foreach ( $xml->result->doc as $doc ) {
 				foreach ( $doc->str as $field ) {
-					switch ( $field['name'] ) {
+					switch ( $field[ 'name' ] ) {
 						case 'dbkey':
 							$dbkey = $field;
 							break;
@@ -227,7 +240,7 @@ class SolrConnectorStore extends SMWStore {
 				}
 				// Multivalue fields
 				foreach ( $doc->arr as $field ) {
-					switch ( $field['name'] ) {
+					switch ( $field[ 'name' ] ) {
 						case 'dbkey':
 							$dbkey = $field;
 							break;
@@ -242,7 +255,7 @@ class SolrConnectorStore extends SMWStore {
 						$value;
 					}
 				}
-				$results[] = new SMWDIWikiPage( $dbkey, $namespace, $interwiki );
+				$results[ ] = new SMWDIWikiPage( $dbkey, $namespace, $interwiki );
 			}
 
 			// Do we have more results?
