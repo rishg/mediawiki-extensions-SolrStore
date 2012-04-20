@@ -392,7 +392,7 @@ class SolrTalker {
 						//	const TYPE_GEO = 7;
 						// TODO: Implement range Search in SOLR
 						$solritem->addField( $propertyName . '_lat', $di->getLatitude() );
-						//$solritem->addField( $propertyName . '_lng', $di->getLongitude() );
+						$solritem->addField( $propertyName . '_lng', $di->getLongitude() );
 						break;
 
 					case 8:
