@@ -234,7 +234,7 @@ class SolrSearchTemplate_FIS {
 								unset( $leerat );
 								for ( $wlpos = 0; $wlpos <= strlen( $_REQUEST[ $feldname ] ); $wlpos++ ) { // wo sind die leerzeichen ?
 									if ( substr( $_REQUEST[ $feldname ], $wlpos, 1 ) == " " ) {
-										$leerat[ ].=$wlpos;
+										$leerat[ ]=$wlpos;
 									}
 								}
 								for ( $wpos = 1; $wpos <= $wcount; $wpos++ ) {
@@ -331,7 +331,7 @@ class SolrSearchTemplate_FIS {
 								unset( $leerat );
 								for ( $wlpos = 0; $wlpos <= strlen( $_REQUEST[ $feldname ] ); $wlpos++ ) { // wo sind die leerzeichen ?
 									if ( substr( $_REQUEST[ $feldname ], $wlpos, 1 ) == " " ) {
-										$leerat[ ].=$wlpos;
+										$leerat[ ]=$wlpos;
 									}
 								}
 								for ( $wpos = 1; $wpos <= $wcount; $wpos++ ) {
