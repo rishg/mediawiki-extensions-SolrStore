@@ -166,39 +166,41 @@ class SolrSearchTemplate_FIS {
 			$this->mHighlightText = "";
 			if ( $this->category == 'Institution' ) { // Searchresult for Institutionen
 				$tmpmaind = 0;
-				
+
 				// Wenn Fakultaet / Fachbereich == Universitaet 
 				// dammit das ganze nur 1x ausgegeben wird
-				if (strtolower($this->maindept) == strtolower($this->higherdept) && $this->higherdept !="") {
+				if ( strtolower( $this->maindept ) == strtolower( $this->higherdept ) && $this->higherdept != "" ) {
 					$this->mHighlightText = $this->maindept;
-					$tmpmaind=2;
+					$tmpmaind = 2;
 				}
 
-				if ( $this->maindept != '' && $tmpmaind!=2) {
-					$this->mHighlightText = $this->maindept;	// Fakultaet / Fachbereich
+				if ( $this->maindept != '' && $tmpmaind != 2 ) {
+					$this->mHighlightText = $this->maindept; // Fakultaet / Fachbereich
 					$tmpmaind = 1;
 				}
-				if ( $this->higherdept != '' && $tmpmaind!=2) {
+				if ( $this->higherdept != '' && $tmpmaind != 2 ) {
 					if ( $tmpmaind == 1 ) {
-						$this->mHighlightText.="<br>"; 	// Wenn Fakultaet nicht leer (umbruch)
+						$this->mHighlightText.="<br>";  // Wenn Fakultaet nicht leer (umbruch)
 					}
-					$this->mHighlightText.= $this->higherdept;	// Ubiversitaet
+					$this->mHighlightText.= $this->higherdept; // Ubiversitaet
 				}
 				$textsnip = $this->mHighlightText;
 				$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
 			}
 			if ( $this->category == 'Projekte' ) { // Searchresult for Projekte
 				$tmpmethode = "";
-				if ( count( $this->methode ) > 0 ) {
-					for ( $i = 0; $i <= count( $this->methode ); $i++ ) {
+				if ( isset( $this->methode ) ) {
+					if ( count( $this->methode ) > 0 ) {
+						for ( $i = 0; $i <= count( $this->methode ); $i++ ) {
 
-						if ( isset( $this->methode[ $i ] ) ) {
-							if ( $this->methode[ $i ] != "keine Angabe" ) { // FRAGEN !!
-								if ( $i == 0 ) {
-									$tmpmethode = "Vorgehensweise: " . $this->methode[ $i ]; // Wenn kein Inhalt ausgegeben wird, nehme Vorgehensweise 
-								} else {
-									if ( isset( $this->methode[ $i ] ) ) {
-										$tmpmethode.=", " . $this->methode[ $i ];
+							if ( isset( $this->methode[ $i ] ) ) {
+								if ( $this->methode[ $i ] != "keine Angabe" ) { // FRAGEN !!
+									if ( $i == 0 ) {
+										$tmpmethode = "Vorgehensweise: " . $this->methode[ $i ]; // Wenn kein Inhalt ausgegeben wird, nehme Vorgehensweise 
+									} else {
+										if ( isset( $this->methode[ $i ] ) ) {
+											$tmpmethode.=", " . $this->methode[ $i ];
+										}
 									}
 								}
 							}
@@ -234,7 +236,7 @@ class SolrSearchTemplate_FIS {
 								unset( $leerat );
 								for ( $wlpos = 0; $wlpos <= strlen( $_REQUEST[ $feldname ] ); $wlpos++ ) { // wo sind die leerzeichen ?
 									if ( substr( $_REQUEST[ $feldname ], $wlpos, 1 ) == " " ) {
-										$leerat[ ]=$wlpos;
+										$leerat[ ] = $wlpos;
 									}
 								}
 								for ( $wpos = 1; $wpos <= $wcount; $wpos++ ) {
@@ -331,7 +333,7 @@ class SolrSearchTemplate_FIS {
 								unset( $leerat );
 								for ( $wlpos = 0; $wlpos <= strlen( $_REQUEST[ $feldname ] ); $wlpos++ ) { // wo sind die leerzeichen ?
 									if ( substr( $_REQUEST[ $feldname ], $wlpos, 1 ) == " " ) {
-										$leerat[ ]=$wlpos;
+										$leerat[ ] = $wlpos;
 									}
 								}
 								for ( $wpos = 1; $wpos <= $wcount; $wpos++ ) {
