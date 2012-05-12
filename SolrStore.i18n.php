@@ -170,6 +170,13 @@ $messages['nl'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet selecteren',
 );
 
+/** Pälzisch (Pälzisch)
+ * @author Manuae
+ */
+$messages['pfl'] = array(
+	'solrsearch-title' => 'Suche',
+);
+
 /** Piedmontese (Piemontèis)
  * @author Borichèt
  * @author Dragonòt
