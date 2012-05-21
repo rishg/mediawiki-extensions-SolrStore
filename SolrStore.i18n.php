@@ -133,6 +133,15 @@ $messages['ia'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: selection de SearchSet',
 );
 
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => '検索',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
