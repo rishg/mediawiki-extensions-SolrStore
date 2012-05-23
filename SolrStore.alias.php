@@ -16,7 +16,17 @@ $specialPageAliases['en'] = array(
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
-	'solrsearch' => array( 'SolrSearch', 'SpecialSolrSearch' ),
+	'solrsearch' => array( 'Solr-Suche' ),
+);
+
+/** Swiss German (Alemannisch) */
+$specialPageAliases['gsw'] = array(
+	'solrsearch' => array( 'Solr-Suech' ),
+);
+
+/** Macedonian (Македонски) */
+$specialPageAliases['mk'] = array(
+	'solrsearch' => array( 'SolrПребарување' ),
 );
 
 /** Dutch (Nederlands) */
