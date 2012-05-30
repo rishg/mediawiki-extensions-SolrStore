@@ -211,3 +211,10 @@ $messages['ru'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Выбор SearchSet',
 );
 
+/** Seeltersk (Seeltersk)
+ * @author Pyt
+ */
+$messages['stq'] = array(
+	'solrsearch-title' => 'Säik',
+);
+
