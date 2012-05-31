@@ -46,6 +46,13 @@ $messages['be-tarask'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: выбар SearchSet',
 );
 
+/** Breton (Brezhoneg)
+ * @author Fulup
+ */
+$messages['br'] = array(
+	'solrsearch-title' => 'Klask',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author SBachenberg
