@@ -46,7 +46,7 @@ $messages['be-tarask'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: выбар SearchSet',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
