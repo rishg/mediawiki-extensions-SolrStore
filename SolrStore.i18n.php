@@ -19,12 +19,13 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Beta16
  * @author F.trott
  * @author Siebrand
  */
 $messages['qqq'] = array(
 	'solrstore-desc' => '{{desc}}',
-	'solrsearch' => "The title of the Special:SolrSearch page as appearing in Special:SpecialPages. Should probably be the same as message ''solrstore-searchFieldSets''",
+	'solrsearch' => 'The title of the Special:SolrSearch page as appearing in Special:SpecialPages. Should probably be the same as message {{msg-mw|solrstore-searchFieldSets}}',
 	'solrstore-error' => 'Currently we have just One Error Message, "Error: Please Check your Query"',
 	'solrstore-searchFieldSets' => 'The pagetitle (heading) of the Special:SolrSearch page',
 	'solrstore-searchFieldSets-select' => 'A SearchSet is a predefined search form for a field based search.',
@@ -138,6 +139,19 @@ $messages['ia'] = array(
 	'solrstore-searchFieldSets' => 'SolrSearch',
 	'solrstore-searchFieldSets-select' => 'Per favor selige un SearchSet',
 	'solrstore-searchFieldSets-title' => 'SolrSearch: selection de SearchSet',
+);
+
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'solrstore-desc' => 'Proprietà semantiche di ricerca con la potenza di un motore di ricerca full-text',
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => 'Ricerca',
+	'solrstore-error' => 'Errore: verifica la tua ricerca.',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => 'Si prega di selezionare un SearchSet',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: seleziona SearchSet',
 );
 
 /** Japanese (日本語)
