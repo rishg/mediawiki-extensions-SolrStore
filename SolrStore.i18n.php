@@ -76,7 +76,7 @@ $messages['de-formal'] = array(
 	'solrstore-error' => 'Fehler: Bitte überprüfen Sie die Suchanfrage.',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  */
 $messages['es'] = array(
@@ -89,7 +89,7 @@ $messages['es'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Seleccione SearchSet',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  */
 $messages['fr'] = array(
@@ -128,7 +128,7 @@ $messages['hsb'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Wuběr pytanskich sadźbow',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -173,7 +173,7 @@ $messages['lb'] = array(
 	'solrstore-searchFieldSets' => 'SolrSich',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -221,7 +221,7 @@ $messages['pms'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: selession ëd SearchSet',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Eleferen
  */
 $messages['ru'] = array(
