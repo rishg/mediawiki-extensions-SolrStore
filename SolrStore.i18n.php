@@ -221,6 +221,19 @@ $messages['pms'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: selession ëd SearchSet',
 );
 
+/** Brazilian Portuguese (português do Brasil)
+ * @author Jaideraf
+ */
+$messages['pt-br'] = array(
+	'solrstore-desc' => 'Busca por propriedades semânticas com a força de um motor de busca por texto completo.',
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => 'Busca',
+	'solrstore-error' => 'Erro: Por favor, verifique a sua consulta.',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => 'Por favor, selecione uma busca',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: seleção de busca',
+);
+
 /** Russian (русский)
  * @author Eleferen
  */
