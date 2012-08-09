@@ -221,6 +221,13 @@ $messages['pms'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: selession ëd SearchSet',
 );
 
+/** Portuguese (português)
+ * @author SandroHc
+ */
+$messages['pt'] = array(
+	'solrsearch-title' => 'Procurar',
+);
+
 /** Brazilian Portuguese (português do Brasil)
  * @author Jaideraf
  */
