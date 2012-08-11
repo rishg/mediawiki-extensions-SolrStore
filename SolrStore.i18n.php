@@ -259,3 +259,16 @@ $messages['stq'] = array(
 	'solrsearch-title' => 'Säik',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'solrstore-desc' => 'Maghanap ng semantikong mga katangiang-ari sa pamamagitan ng kapangyarihan ng isang makinang panghanap ng buong teksto',
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => 'Maghanap',
+	'solrstore-error' => 'Kamalian: Paki suriin ang tanong mo.',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => 'Paki pumili ng isang SearchSet o Pangkat na Panghanap',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: Pagpili na SearchSet',
+);
+
