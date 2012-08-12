@@ -266,11 +266,25 @@ $messages['ru'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Выбор SearchSet',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'solrsearch-title' => 'සොයන්න',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */
 $messages['stq'] = array(
 	'solrsearch-title' => 'Säik',
+);
+
+/** Tamil (தமிழ்)
+ * @author Karthi.dr
+ */
+$messages['ta'] = array(
+	'solrsearch-title' => 'தேடு',
 );
 
 /** Tagalog (Tagalog)
