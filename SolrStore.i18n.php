@@ -109,6 +109,22 @@ $messages['fr'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: choix de SearchSet',
 );
 
+/** Franco-Provençal (arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => 'Rechèrchiér',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+);
+
+/** Irish (Gaeilge)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ga'] = array(
+	'solrsearch-title' => 'Cuardaigh',
+);
+
 /** Galician (galego)
  * @author Toliño
  */
@@ -298,5 +314,12 @@ $messages['tl'] = array(
 	'solrstore-searchFieldSets' => 'SolrSearch',
 	'solrstore-searchFieldSets-select' => 'Paki pumili ng isang SearchSet o Pangkat na Panghanap',
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Pagpili na SearchSet',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['vi'] = array(
+	'solrsearch-title' => 'Tìm kiếm',
 );
 
