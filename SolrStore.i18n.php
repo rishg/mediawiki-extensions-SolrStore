@@ -316,6 +316,13 @@ $messages['tl'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Pagpili na SearchSet',
 );
 
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'solrsearch-title' => 'تلاش',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author පසිඳු කාවින්ද
  */
