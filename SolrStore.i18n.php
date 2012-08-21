@@ -145,6 +145,19 @@ $messages['gl'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Selección do conxunto de procuras',
 );
 
+/** Hebrew (עברית)
+ * @author Amire80
+ */
+$messages['he'] = array(
+	'solrstore-desc' => 'חיפוש מאפיינים סמנטיים עם כוח של מנוע חיפוש בטקסט מלא',
+	'solrsearch' => 'חיפוש Solr',
+	'solrsearch-title' => 'חיפוש',
+	'solrstore-error' => 'שגיאה: נא בדוק את השאילתה שלך.',
+	'solrstore-searchFieldSets' => 'חיפוש Solr',
+	'solrstore-searchFieldSets-select' => 'נא לבחור ערכת חיפוש',
+	'solrstore-searchFieldSets-title' => 'חיפוש Solr: בחירת ערכת חיפוש',
+);
+
 /** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
