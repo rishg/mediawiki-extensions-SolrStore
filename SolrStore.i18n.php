@@ -272,6 +272,13 @@ $messages['pms'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: selession ëd SearchSet',
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'solrsearch-title' => 'پلټل',
+);
+
 /** Portuguese (português)
  * @author SandroHc
  */
