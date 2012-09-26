@@ -105,7 +105,7 @@ class SpecialSolrSearch extends SpecialPage {
 	 * @param $fieldSet String
 	 */
 	public function showResults( $fieldSet ) {
-		global $wgOut, $wgUser, $wgContLang, $wgScript, $wgSolrShowRelated, $wgSolrDebug;
+		global $wgOut, $wgUser, $wgContLang, $wgScript, $wgSolrShowRelated, $wgSolrDebug, $wgSolrPrintHeadAsFieldset;
 		wfProfileIn( __METHOD__ );
 
 		$sk = $wgUser->getSkin();
@@ -193,21 +193,12 @@ class SpecialSolrSearch extends SpecialPage {
 						)
 				)
 		);
-		$wgOut->addHtml(
-				Xml::openElement( 'table', array(
-					'id'=>'mw-search-top-table',
-					'border'=>0,
-					'cellpadding'=>0,
-					'cellspacing'=>0
-						)
-				) .
-				Xml::openElement( 'tr' ) .
-				Xml::openElement( 'td' ) . "\n" .
-				$this->shortDialog( $fieldSet ) .
-				Xml::closeElement( 'td' ) .
-				Xml::closeElement( 'tr' ) .
-				Xml::closeElement( 'table' )
-		);
+
+		if ( $wgSolrPrintHeadAsFieldset ) {
+			$wgOut->addHtml( $this->shortDialogFieldset( $fieldSet ) );
+		} else {
+			$wgOut->addHtml( $this->shortDialog( $fieldSet ) );
+		}
 
 		// Sometimes the search engine knows there are too many hits
 		if ( $titleMatches instanceof SearchResultTooMany ) {
@@ -535,16 +526,15 @@ class SpecialSolrSearch extends SpecialPage {
 	protected function shortDialog( $fieldSet ) {
 		$searchTitle = SpecialPage::getTitleFor( 'SolrSearch' );
 
-
+		$out = '<table id="mw-search-top-table" cellspacing="0" cellpadding="0" border="0">';
 		if ( $fieldSet->getName() != 'search' ) {
-			$out = Html::hidden( 'title', $searchTitle->getPrefixedText() . '/' . $fieldSet->getName() ) . "\n";
+			$out .= Html::hidden( 'title', $searchTitle->getPrefixedText() . '/' . $fieldSet->getName() ) . "\n";
 		} else {
-			$out = Html::hidden( 'title', $searchTitle->getPrefixedText() ) . "\n";
+			$out .= Html::hidden( 'title', $searchTitle->getPrefixedText() ) . "\n";
 		}
 		// Term box
 
 		$lable = $fieldSet->getLable();
-		$out .= '<table>';
 
 		foreach ( $fieldSet->getFields() as $key=>$value ) {
 			$out .= '<tr>';
@@ -559,7 +549,40 @@ class SpecialSolrSearch extends SpecialPage {
 					) ) . "\n";
 			$out .= '</td></tr>';
 		}
-		$out .= '<table>';
+		$out .= '</table>';
+		$out .= Xml::submitButton( wfMsg( 'searchbutton' ) ) . "\n";
+		return $out . $this->didYouMeanHtml;
+	}
+
+	/*
+	 * Same as shortDialog, just with Fieldset's insted of table
+	 */
+
+	protected function shortDialogFieldset( $fieldSet ) {
+		$searchTitle = SpecialPage::getTitleFor( 'SolrSearch' );
+		if ( $fieldSet->getName() != 'search' ) {
+			$out = Html::hidden( 'title', $searchTitle->getPrefixedText() . '/' . $fieldSet->getName() ) . "\n";
+		} else {
+			$out = Html::hidden( 'title', $searchTitle->getPrefixedText() ) . "\n";
+		}
+		// Term box
+
+		$lable = $fieldSet->getLable();
+		$out .= '<fieldset>';
+
+		foreach ( $fieldSet->getFields() as $key=>$value ) {
+			$out .= '<div>';
+			if ( isset( $lable[ $key ] ) ) {
+				$out .= '<label for="' . $key . '">' . $lable[ $key ] . '</label>';
+			}
+			$out .= Html::input( $key, $value, $key, array(
+						'id'=>$key,
+						'size'=>'50',
+						'autofocus'
+					) ) . "\n";
+			$out .= '</div>';
+		}
+		$out .= '</fieldset>';
 		$out .= Xml::submitButton( wfMsg( 'searchbutton' ) ) . "\n";
 		return $out . $this->didYouMeanHtml;
 	}

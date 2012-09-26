@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Dynamic Template 'Standart' -> Example
  *
@@ -28,6 +29,7 @@ class SolrSearchTemplate_Standart {
 		$snipmax = 50;
 		$textlenght = 250;
 
+		//print_r( $xml );
 		// get Size, Namespace, Wordcound, Date from XML:		
 		foreach ( $xml->arr as $doc ) {
 			switch ( $doc[ 'name' ] ) {
@@ -48,6 +50,15 @@ class SolrSearchTemplate_Standart {
 					$this->mSize = ( $this->mSize / 3 );
 					$this->mDate = $doc->date;
 					break;
+				case 'wikitext':
+					$textsnipy ="";
+					$textsnipy = $doc->str;
+					$textsnipy = str_replace('{', '', $textsnipy);
+					$textsnipy = str_replace('}', '', $textsnipy);
+					$textsnipy = str_replace('|', '', $textsnipy);
+					$textsnipy = str_replace('=', ' ', $textsnipy);
+					$textsnipy = substr( $textsnipy, 0, $textlenght );
+					break;
 			}
 		}
 
@@ -55,13 +66,13 @@ class SolrSearchTemplate_Standart {
 		foreach ( $xml->str as $docs ) {
 			switch ( $docs[ 'name' ] ) {
 				case 'pagetitle':
-					$this->mTitle = $doc->str;
+					$this->mTitle = $docs;
 					break;
 				case 'dbkey':
-					$title = $doc->str;
+					$title = str_replace( "_", " ", $docs );
 					break;
 				case 'interwiki':
-					$this->mInterwiki = $doc->str;
+					$this->mInterwiki = $docs;
 					break;
 			}
 		}
@@ -70,7 +81,7 @@ class SolrSearchTemplate_Standart {
 		foreach ( $xml->int as $doci ) {
 			switch ( $doci[ 'name' ] ) {
 				case 'namespace':
-					$namespace = $doc->str;
+					$namespace = $doci;
 					break;
 			}
 		}
@@ -101,7 +112,7 @@ class SolrSearchTemplate_Standart {
 			$this->mHighlightText = str_replace( '</em>', '</b>', $this->mHighlightText );
 			$this->mHighlightText .= '...';
 		} else {
-			$this->mHighlightText = "NO HIGHLIGHTING TEXT FROM SOLR !";
+			$this->mHighlightText = $textsnipy;
 
 			// if nothing define itself !
 			// 4 example with 

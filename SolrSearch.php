@@ -325,11 +325,21 @@ class SolrSearchSet extends SearchResultSet {
 	 */
 	public static function newFromQuery( $method, $query, $namespaces = array( ), $limit = 20, $offset = 0, $searchAll = false ) {
 		wfProfileIn( __METHOD__ );
-
+		global $wgSolrFields;
 		$wgSolrTalker = new SolrTalker();
-
 		$query = $wgSolrTalker->queryChecker( $query );
-		$xml = $wgSolrTalker->solrQuery( $query, $offset, $limit, true, true ); // Abfrage ok, ergebniss in XML
+		
+		// Quick and dirty SorlFieldset hack to change the SORT: 
+		// maybe other way better
+		$cat = substr( $query, strpos( $query, "category:" ) + 8 );
+		$sort=false;
+		foreach ( $wgSolrFields as $field ) {
+			if ( substr( $field->mQuery, strpos( $field->mQuery, "category:" ) + 8 ) == $cat ) {
+				$sort=$field->mSort;
+			}
+		}		
+		$xml = $wgSolrTalker->solrQuery( $query, $offset, $limit, true, true, true, $sort ); // Abfrage ok, ergebniss in XML
+		// --------
 		$totalHits = $xml->result[ 'numFound' ];
 
 		$resultLines = array( );

@@ -59,7 +59,7 @@ class SolrTalker {
 	 * @param $end Integer: limit
 	 * @return type $xml	- Solr Result as XML
 	 */
-	public function solrQuery( $query, $start, $end, $highlight = false, $score = false ) {
+	public function solrQuery( $query, $start, $end, $highlight = false, $score = false, $and = false, $sort) {
 		global $wgSolrUrl;
 
 		$query = trim( $query );
@@ -73,7 +73,13 @@ class SolrTalker {
 		if ( $score ) {
 			$url .= '&fl=*%2Cscore';
 		}
-
+		if ( $and ) {
+			$url .= '&q.op=AND';
+		}
+		if ($sort)
+		{
+			$url .= '&sort=' . $sort;
+		}
 		return $this->solrSend( $url );
 	}
 
@@ -205,8 +211,15 @@ class SolrTalker {
 		$xmlcontent = str_replace( '&nbsp', ' ', $xmlcontent );
 		$xmlcontent = str_replace( '&amp;', ' ', $xmlcontent );
 		$xmlcontent = str_replace( '&amp', ' ', $xmlcontent );
-
-		return $this->solrSend( $url, $xmlcontent );
+		try {
+			return $this->solrSend( $url, $xmlcontent );
+		} catch ( Exception $exc ) {
+			echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \n";
+			echo "-------------ERROR---------------------- \n";
+			echo "URL: $url \n";
+			echo "XML: $xmlcontent \n";
+			throw new MWException( $exc->getMessage() );
+		}
 	}
 
 	/**
@@ -259,7 +272,7 @@ class SolrTalker {
 
 			$u = $xml->getElementsByTagName( 'u' );
 			$errmsg = $xml->saveXML( $u->item( $u->length - 1 )->firstChild );
-
+				
 			throw new MWException( $errmsg );
 		}
 
@@ -285,9 +298,9 @@ class SolrTalker {
 	 * @return type $xml - Response from Solr
 	 */
 	public function deleteDocId( $id ) {
-		$filekopf = '<delte><id>';
-		$filefuss = '</id></delte>';
-		$xmlcontent = $filekopf . $id . $filefuss;
+		$filekopf = '<delete><id>';
+		$filefuss = '</id></delete>';
+		$xmlcontent = $filekopf . str_replace( ' ', '_', $id ) . $filefuss;
 		return $this->solrAdd( $xmlcontent );
 	}
 
@@ -297,8 +310,8 @@ class SolrTalker {
 	 * @return type $xml - Response from Solr
 	 */
 	public function deleteDocQuery( $query ) {
-		$filekopf = '<delte><query>';
-		$filefuss = '</query></delte>';
+		$filekopf = '<delete><query>';
+		$filefuss = '</query></delete>';
 		$xmlcontent = $filekopf . $query . $filefuss;
 		return $this->solrAdd( $xmlcontent );
 	}
@@ -319,124 +332,141 @@ class SolrTalker {
 	 * @param SMWSemanticData $data
 	 */
 	public function parseSemanticData( SMWSemanticData $data ) {
+		global $wgSolrOmitNS;
 		$solritem = new SolrDoc();
-
+		$stop = false;
 		$solritem->addField( 'pagetitle', $data->getSubject()->getTitle()->getText() );
 		$solritem->addField( 'namespace', $data->getSubject()->getNamespace() );
 		$solritem->addField( 'dbkey', $data->getSubject()->getDBkey() );
 		$solritem->addField( 'interwiki', $data->getSubject()->getInterwiki() );
 		$solritem->addField( 'subobjectname', $data->getSubject()->getSubobjectName() );
 
-		foreach ( $data->getProperties() as $property ) {
-			if ( ( $property->getKey() == '_SKEY' ) || ( $property->getKey() == '_REDI' ) ) {
-				continue; // skip these here, we store them differently
-			}
-
-			$propertyName = $property->getLabel();
-
-			foreach ( $data->getPropertyValues( $property ) as $di ) {
-				if ( $di instanceof SMWDIError ) { // error values, ignore
-					continue;
+		if ( in_array( $data->getSubject()->getNamespace(), $wgSolrOmitNS ) ) {
+			$stop = true;
+		} else {
+			foreach ( $data->getProperties() as $property ) {
+				if ( ( $property->getKey() == '_SKEY' ) || ( $property->getKey() == '_REDI' ) ) {
+					continue; // skip these here, we store them differently
 				}
-				switch ( $di->getDIType() ) {
-					case 0:
-						//	  /// Data item ID that can be used to indicate that no data item class is appropriate
-						//	const TYPE_NOTYPE = 0;
-						break;
 
-					case 1:
-						//	/// Data item ID for SMWDINumber
-						//	const TYPE_NUMBER = 1;
-						$solritem->addField( $propertyName . '_i', $di->getNumber() );
-						//$solritem->addSortField( $propertyName . '_i', $di->getNumber() );
-						break;
+				$propertyName = $property->getLabel();
 
-					case 2:
-						//	/// Data item ID for SMWDIString
-						//	const TYPE_STRING = 2;
-						$solritem->addField( $propertyName . '_t', $di->getString() );
-						//$solritem->addSortField( $propertyName . '_t', $di->getString() );
-						break;
+				//BA New NoIndex
 
-					case 3:
-						//	///  Data item ID for SMWDIBlob
-						//	const TYPE_BLOB = 3;
-						$solritem->addField( $propertyName . '_t', $di->getString() );
-						//$solritem->addSortField( $propertyName . '_t', $di->getString() );
-						break;
+				if ( strtolower( $propertyName ) == 'noindex' ) {
+					$this->deleteDocId( $data->getSubject()->getTitle()->getText() );
+					$stop = true;
+				} else {
+					foreach ( $data->getPropertyValues( $property ) as $di ) {
 
-					case 4:
-						//	///  Data item ID for SMWDIBoolean
-						//	const TYPE_BOOLEAN = 4;
-						$solritem->addField( $propertyName . '_b', $di->getBoolean() );
-						//$solritem->addSortField( $propertyName . '_b', $di->getBoolean() );
-						break;
-
-					case 5:
-						//	///  Data item ID for SMWDIUri
-						//	const TYPE_URI = 5;
-						$solritem->addField( $propertyName . '_t', $di->getURI() );
-						//$solritem->addSortField( $propertyName . '_t', $di->getURI() );
-						break;
-
-					case 6:
-						//	///  Data item ID for SMWDITimePoint
-						//	const TYPE_TIME = 6;
-						$date = $di->getYear() . '-' . $di->getMonth() . '-' . $di->getDay() . 'T' . $di->getHour() . ':' . $di->getMinute() . ':' . $di->getSecond() . 'Z';
-						$solritem->addField( $propertyName . '_dt', $date );
-						//$solritem->addSortField( $propertyName . '_dt', $date );
-						break;
-
-					case 7:
-						//	///  Data item ID for SMWDIGeoCoord
-						//	const TYPE_GEO = 7;
-						// TODO: Implement range Search in SOLR
-						$solritem->addField( $propertyName . '_lat', $di->getLatitude() );
-						$solritem->addField( $propertyName . '_lng', $di->getLongitude() );
-						break;
-
-					case 8:
-						//	///  Data item ID for SMWDIContainer
-						//	const TYPE_CONTAINER = 8
-						// TODO: What the hell is this used for?
-						$data->getSubject()->getTitle()->getText() . ' : ';
-						break;
-
-					case 9:
-						//	///  Data item ID for SMWDIWikiPage
-						//	const TYPE_WIKIPAGE = 9;
-						$ns = $di->getNamespace();
-						if ( $ns == 0 ) {
-							$solritem->addField( $propertyName . '_s', $di->getTitle() );
-						} elseif ( $ns == 14 ) {
-							$title = $di->getTitle();
-							$solritem->addField( 'category', substr( $title, stripos( $title, ':' ) + 1 ) );
+						if ( $di instanceof SMWDIError ) { // error values, ignore
+							continue;
 						}
-						break;
+						switch ( $di->getDIType() ) {
+							case 0:
+								//              /// Data item ID that can be used to indicate that no data item class is appropriate
+								//            const TYPE_NOTYPE = 0;
+								break;
 
-					case 10:
-						//	///  Data item ID for SMWDIConcept
-						//	const TYPE_CONCEPT = 10;
-						$data->getSubject()->getTitle()->getText() . ' : ';
-						break;
+							case 1:
+								//            /// Data item ID for SMWDINumber
+								//            const TYPE_NUMBER = 1;
+								$solritem->addField( $propertyName . '_f', $di->getNumber() );
+								//$solritem->addSortField( $propertyName . '_i', $di->getNumber() );
+								break;
 
-					case 11:
-						//	///  Data item ID for SMWDIProperty
-						//	const TYPE_PROPERTY = 11;
-						$data->getSubject()->getTitle()->getText() . ' : ';
-						break;
+							case 2:
+								//            /// Data item ID for SMWDIString
+								//            const TYPE_STRING = 2;
+								$solritem->addField( $propertyName . '_s', $di->getString() );
+								//$solritem->addSortField( $propertyName . '_t', $di->getString() );
+								break;
 
-					case 12:
-						//	///  Data item ID for SMWDIError
-						//	const TYPE_ERROR = 12;
-						$data->getSubject()->getTitle()->getText() . ' : ';
-						break;
-					default:
-						break;
+							case 3:
+								//            ///  Data item ID for SMWDIBlob
+								//            const TYPE_BLOB = 3;
+								$solritem->addField( $propertyName . '_t', $di->getString() );
+								//$solritem->addSortField( $propertyName . '_t', $di->getString() );
+								break;
+
+							case 4:
+								//            ///  Data item ID for SMWDIBoolean
+								//            const TYPE_BOOLEAN = 4;
+								$solritem->addField( $propertyName . '_b', $di->getBoolean() );
+								//$solritem->addSortField( $propertyName . '_b', $di->getBoolean() );
+								break;
+
+							case 5:
+								//            ///  Data item ID for SMWDIUri
+								//            const TYPE_URI = 5;
+								$solritem->addField( $propertyName . '_s', $di->getURI() );
+								//$solritem->addSortField( $propertyName . '_t', $di->getURI() );
+								break;
+
+							case 6:
+								//            ///  Data item ID for SMWDITimePoint
+								//            const TYPE_TIME = 6;
+								$date = $di->getYear() . '-' . $di->getMonth() . '-' . $di->getDay() . 'T' . $di->getHour() . ':' . $di->getMinute() . ':' . $di->getSecond() . 'Z';
+								$solritem->addField( $propertyName . '_dt', $date );
+								//$solritem->addSortField( $propertyName . '_dt', $date );
+								break;
+
+							case 7:
+								//            ///  Data item ID for SMWDIGeoCoord
+								//            const TYPE_GEO = 7;
+								// TODO: Implement range Search in SOLR
+								$solritem->addField( $propertyName . '_lat', $di->getLatitude() );
+								$solritem->addField( $propertyName . '_lng', $di->getLongitude() );
+								break;
+
+							case 8:
+								//            ///  Data item ID for SMWDIContainer
+								//            const TYPE_CONTAINER = 8
+								// TODO: What the hell is this used for?
+								$data->getSubject()->getTitle()->getText() . ' : ';
+								break;
+
+							case 9:
+								//            ///  Data item ID for SMWDIWikiPage
+								//            const TYPE_WIKIPAGE = 9;
+								$ns = $di->getNamespace();
+								if ( $ns == 0 ) {
+									$solritem->addField( $propertyName . '_s', $di->getTitle() );
+								} elseif ( $ns == 14 ) {
+									$title = $di->getTitle();
+									$solritem->addField( 'category', substr( $title, stripos( $title, ':' ) + 1 ) );
+								}
+								break;
+
+							case 10:
+								//            ///  Data item ID for SMWDIConcept
+								//            const TYPE_CONCEPT = 10;
+								$data->getSubject()->getTitle()->getText() . ' : ';
+								break;
+
+							case 11:
+								//            ///  Data item ID for SMWDIProperty
+								//            const TYPE_PROPERTY = 11;
+								$data->getSubject()->getTitle()->getText() . ' : ';
+								break;
+
+							case 12:
+								//            ///  Data item ID for SMWDIError
+								//            const TYPE_ERROR = 12;
+								$data->getSubject()->getTitle()->getText() . ' : ';
+								break;
+							default:
+								break;
+						}
+					}
 				}
 			}
 		}
-		$this->addDoc( $solritem );
+		if ( !$stop ) {
+			$article = new Article( Title::newFromDBkey( $data->getSubject()->getDBkey() ) );
+			$solritem->addField( 'wikitext', $article->getRawText() );
+			$this->addDoc( $solritem );
+		}
 	}
 
 }

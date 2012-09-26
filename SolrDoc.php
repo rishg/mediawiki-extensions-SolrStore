@@ -26,7 +26,7 @@ class SolrDoc {
 	 * @param $value String: value of the field
 	 */
 	public function addField( $name, $value ) {
-		$this->output .= '<field name="' . strip_tags( $name ) . '">' . strip_tags( $value ) . '</field>';
+		$this->output .= '<field name="' . str_replace( '<', '', str_replace( '>', '', strip_tags( $name ) ) ). '">' . str_replace( '<', '', str_replace( '>', '', strip_tags( $value ) ) ) . '</field>';
 	}
 
 	/**

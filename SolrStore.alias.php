@@ -21,7 +21,7 @@ $specialPageAliases['ar'] = array(
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
-	'solrsearch' => array( 'Solr-Suche' ),
+	'solrsearch' => array( 'SolrSearch', 'SpecialSolrSearch' ),
 );
 
 /** Zazaki (Zazaki) */

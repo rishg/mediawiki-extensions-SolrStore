@@ -6,7 +6,7 @@
  *
  * @defgroup SolrStore
  * @author Stephan Gambke, Simon Bachenberg, Sascha Schueller
- * @version 0.6 Beta
+ * @version 0.7 Beta
  */
 /**
  * The main file of the SolrConnector extension
@@ -76,3 +76,4 @@ $wgSolrTemplate				= "_Standart";
 $wgSolrFields				= array( );
 $wgSolrShowRelated			= true;
 $wgSolrDebug				= false;
+$wgSolrOmitNS				= array('102' );

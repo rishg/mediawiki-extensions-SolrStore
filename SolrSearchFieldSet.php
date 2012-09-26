@@ -25,13 +25,15 @@ class SolrSearchFieldSet {
 	var $mFields;
 	var $mLable;
 	var $mQuery;
+	var $mSort;
 	var $mFieldSeperator;
 
-	public function __construct( $name, $fields = 'search', $lable = 'Alles', $query = null, $fieldSeperator = null ) {
+	public function __construct( $name, $fields = 'search', $lable = 'Alles', $query = null, $fieldSeperator = null, $sort=null ) {
 		$this->mName = $name;
 		$this->mFields = explode( ';', $fields );
 		$this->mLable = explode( ';', $lable );
 		$this->mQuery = $query;
+		$this->mSort = $sort;
 		$this->mFieldSeperator = $fieldSeperator;
 
 		if ( !isset( $this->mFieldSeperator ) ) {
@@ -59,6 +61,10 @@ class SolrSearchFieldSet {
 		return $this->mFieldSeperator;
 	}
 
+	public function getSort() {
+		return $this->mSort;
+	}
+
 	public function setName( $value ) {
 		$this->mName = $value;
 	}
@@ -78,5 +84,8 @@ class SolrSearchFieldSet {
 	public function setFieldSeperator( $value ) {
 		$this->mFieldSeperator = $value;
 	}
-
+	public function setSort( $value ) {
+		$this->mSort = $value;
+	}
+	
 }

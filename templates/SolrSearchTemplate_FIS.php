@@ -35,16 +35,18 @@ class SolrSearchTemplate_FIS {
 	var $methode = null;
 
 	public function applyTemplate( $xml ) {
-		global $wgSolrFields;
-
+		global $wgSolrFields, $wgContLang;
 		$snipmax = 50;
 		$textlenght = 1000;
 		$textlenghteffective = 315;
+                $titlename="";
 
 		// Bugfix: clear the var!
 		unset( $this->Inhalt_de_t );
 		unset( $this->methode );
-		// get Size, Wordcound, Date, Inhalt_de_t from XML:		
+		//print_r($xml);
+		// get Size, Wordcound, Date, Inhalt_de_t from XML:	
+		$textsnip = '';
 		foreach ( $xml->arr as $doc ) {
 			switch ( $doc[ 'name' ] ) {
 				case 'text':
@@ -93,11 +95,13 @@ class SolrSearchTemplate_FIS {
 					$this->maindept = $doc->str;
 					break;
 
-				case 'Methode_t':
+				case 'Methode_s':
 					foreach ( $doc->str as $methoden ) {
 						$this->methode[ ] = $methoden;
 					}
 					break;
+				case 'Titel_s':
+					$titlename = str_replace("_"," ",$doc->str);
 			}
 		}
 
@@ -105,13 +109,17 @@ class SolrSearchTemplate_FIS {
 		foreach ( $xml->str as $docs ) {
 			switch ( $docs[ 'name' ] ) {
 				case 'pagetitle':
-					$this->mTitle = $doc->str;
+					$this->mTitle = $docs;
 					break;
 				case 'dbkey':
-					$title = $doc->str;
+					$title = str_replace("_"," ",$docs);
+					break;
+				case 'Titel_s':
+					$title = "TEST"; //str_replace("_"," ",$docs);
+					//$title="TEST";
 					break;
 				case 'interwiki':
-					$this->mInterwiki = $doc->str;
+					$this->mInterwiki = $docs;
 					break;
 			}
 		}
@@ -120,7 +128,7 @@ class SolrSearchTemplate_FIS {
 		foreach ( $xml->int as $doci ) {
 			switch ( $doci[ 'name' ] ) {
 				case 'namespace':
-					$namespace = $doc->str;
+					$namespace = intval( $doci );
 					break;
 			}
 		}
@@ -139,8 +147,8 @@ class SolrSearchTemplate_FIS {
 		$this->mTitle = Title::makeTitle( $namespace, $title );
 
 		// make Highlight - Title
-		$this->mHighlightTitle = $title;
-		$this->makeHighlightTitle( $wgSolrFields, $title );
+		$this->mHighlightTitle = $titlename;
+		$this->makeHighlightTitle( $wgSolrFields, $titlename );
 
 		$firstw = false;
 
@@ -189,10 +197,11 @@ class SolrSearchTemplate_FIS {
 			}
 			if ( $this->category == 'Projekte' ) { // Searchresult for Projekte
 				$tmpmethode = "";
+				//if ()
+				//	else{
 				if ( isset( $this->methode ) ) {
 					if ( count( $this->methode ) > 0 ) {
 						for ( $i = 0; $i <= count( $this->methode ); $i++ ) {
-
 							if ( isset( $this->methode[ $i ] ) ) {
 								if ( $this->methode[ $i ] != "keine Angabe" ) { // FRAGEN !!
 									if ( $i == 0 ) {
@@ -208,8 +217,10 @@ class SolrSearchTemplate_FIS {
 					}
 				}
 
-				//$textsnip = $this->mHighlightText = $tmpmethode; 
-				//$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
+				//}
+
+				$textsnip = $this->mHighlightText = $tmpmethode;
+				$this->makeHighlightText( $wgSolrFields, $textsnip ); // TEXTSNIP: Highlight the searching stuff:
 			}
 		}
 
