@@ -46,7 +46,7 @@ $messages['ar'] = array(
 	'solrsearch-title' => 'بحث',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -83,7 +83,7 @@ $messages['de'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet Auswahl',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Kghbln
  */
 $messages['de-formal'] = array(
