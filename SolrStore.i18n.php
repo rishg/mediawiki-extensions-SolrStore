@@ -357,4 +357,3 @@ $messages['ur'] = array(
 $messages['vi'] = array(
 	'solrsearch-title' => 'Tìm kiếm',
 );
-
