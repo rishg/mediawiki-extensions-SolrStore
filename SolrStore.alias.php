@@ -34,6 +34,11 @@ $specialPageAliases['gsw'] = array(
 	'solrsearch' => array( 'Solr-Suech' ),
 );
 
+/** Italian (italiano) */
+$specialPageAliases['it'] = array(
+	'solrsearch' => array( 'RicercaSolr' ),
+);
+
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = array(
 	'solrsearch' => array( 'Solr検索' ),
