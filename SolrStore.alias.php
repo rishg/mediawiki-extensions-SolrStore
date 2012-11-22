@@ -58,3 +58,8 @@ $specialPageAliases['mk'] = array(
 $specialPageAliases['nl'] = array(
 	'solrsearch' => array( 'SolrZoeken' ),
 );
+
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'solrsearch' => array( 'RicercaSolr' ),
+);
