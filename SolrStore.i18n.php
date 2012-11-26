@@ -214,6 +214,19 @@ $messages['ka'] = array(
 	'solrsearch-title' => 'ძიება',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'solrstore-desc' => '전체 텍스트 검색 엔진의 힘으로 의미적 속성 찾기',
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => '찾기',
+	'solrstore-error' => '오류: 쿼리를 확인하세요',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => 'SearchSet를 선택하세요.',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet 선택',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
