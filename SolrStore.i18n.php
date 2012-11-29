@@ -103,6 +103,19 @@ $messages['es'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Seleccione SearchSet',
 );
 
+/** Finnish (suomi)
+ * @author Nedergard
+ */
+$messages['fi'] = array(
+	'solrstore-desc' => 'Mahdollistaa semanttisten ominaisuuksien haun tekstihakukoneen avulla',
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => 'Hae',
+	'solrstore-error' => 'Virhe: tarkista kyselysi.',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => 'Valitse SearchSet',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet-valinta',
+);
+
 /** French (français)
  * @author Gomoko
  */
