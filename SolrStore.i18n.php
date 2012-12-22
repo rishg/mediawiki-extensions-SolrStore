@@ -271,7 +271,7 @@ $messages['nl'] = array(
 	'solrstore-desc' => 'Semantische eigenschappen doorzoeken met de kracht van een fulltext zoekmachine',
 	'solrsearch' => 'SolrSearch',
 	'solrsearch-title' => 'Zoeken',
-	'solrstore-error' => 'Fout: Controleer uw query.',
+	'solrstore-error' => 'Fout: controleer uw zoekopdracht.',
 	'solrstore-searchFieldSets' => 'SolrSearch',
 	'solrstore-searchFieldSets-select' => 'Selecteer een SearchSet',
 	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet selecteren',
@@ -370,6 +370,13 @@ $messages['tl'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Pagpili na SearchSet',
 );
 
+/** Ukrainian (українська)
+ * @author Steve.rusyn
+ */
+$messages['uk'] = array(
+	'solrsearch-title' => 'Пошук',
+);
+
 /** Urdu (اردو)
  * @author පසිඳු කාවින්ද
  */
@@ -382,4 +389,18 @@ $messages['ur'] = array(
  */
 $messages['vi'] = array(
 	'solrsearch-title' => 'Tìm kiếm',
+);
+
+/** Simplified Chinese (中文（简体）‎)
+ * @author Shirayuki
+ */
+$messages['zh-hans'] = array(
+	'solrsearch-title' => '搜索',
+);
+
+/** Traditional Chinese (中文（繁體）‎)
+ * @author Shirayuki
+ */
+$messages['zh-hant'] = array(
+	'solrsearch-title' => '搜尋',
 );
