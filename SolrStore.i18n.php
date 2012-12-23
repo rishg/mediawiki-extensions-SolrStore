@@ -61,6 +61,13 @@ $messages['be-tarask'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: выбар SearchSet',
 );
 
+/** Bulgarian (български)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['bg'] = array(
+	'solrsearch-title' => 'Търсене',
+);
+
 /** Breton (brezhoneg)
  * @author Fulup
  */
@@ -348,6 +355,13 @@ $messages['si'] = array(
  */
 $messages['stq'] = array(
 	'solrsearch-title' => 'Säik',
+);
+
+/** Swedish (svenska)
+ * @author WikiPhoenix
+ */
+$messages['sv'] = array(
+	'solrsearch-title' => 'Sök',
 );
 
 /** Tamil (தமிழ்)
