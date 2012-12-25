@@ -386,9 +386,16 @@ $messages['tl'] = array(
 
 /** Ukrainian (українська)
  * @author Steve.rusyn
+ * @author Ата
  */
 $messages['uk'] = array(
+	'solrstore-desc' => 'Семантичний пошук з використанням ресурсів повнотекстового пошукового двигуна',
+	'solrsearch' => 'SolrSearch',
 	'solrsearch-title' => 'Пошук',
+	'solrstore-error' => 'Помилка: Будь ласка, перевірте свій запит.',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => 'Будь ласка, виберіть SearchSet',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: Вибір SearchSet',
 );
 
 /** Urdu (اردو)
