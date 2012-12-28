@@ -257,6 +257,13 @@ $messages['lb'] = array(
 	'solrstore-searchFieldSets' => 'SolrSich',
 );
 
+/** Latvian (latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'solrstore-error' => 'Kļūda: Lūdzu, pārbaudiet savu vaicājumu.',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
