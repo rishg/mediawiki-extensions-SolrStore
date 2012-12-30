@@ -75,6 +75,13 @@ $messages['br'] = array(
 	'solrsearch-title' => 'Klask',
 );
 
+/** Czech (česky)
+ * @author Vks
+ */
+$messages['cs'] = array(
+	'solrsearch-title' => 'Hledat',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author SBachenberg
@@ -354,7 +361,9 @@ $messages['ru'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'solrsearch' => 'සොල්ර්සෙවුම',
 	'solrsearch-title' => 'සොයන්න',
+	'solrstore-searchFieldSets' => 'සොල්ර්සෙවුම',
 );
 
 /** Seeltersk (Seeltersk)
