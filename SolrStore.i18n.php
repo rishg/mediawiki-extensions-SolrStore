@@ -117,6 +117,13 @@ $messages['es'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Seleccione SearchSet',
 );
 
+/** Persian (فارسی)
+ * @author Mjbmr
+ */
+$messages['fa'] = array(
+	'solrsearch-title' => 'جستجو',
+);
+
 /** Finnish (suomi)
  * @author Nedergard
  */
@@ -346,6 +353,13 @@ $messages['pt-br'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: seleção de busca',
 );
 
+/** Romanian (română)
+ * @author Minisarm
+ */
+$messages['ro'] = array(
+	'solrsearch-title' => 'Căutare',
+);
+
 /** Russian (русский)
  * @author Eleferen
  */
@@ -363,7 +377,10 @@ $messages['ru'] = array(
 $messages['si'] = array(
 	'solrsearch' => 'සොල්ර්සෙවුම',
 	'solrsearch-title' => 'සොයන්න',
+	'solrstore-error' => 'දෝෂය: කරුණාකර ඔබේ ප්‍රශ්නය පරික්ෂා කරන්න.',
 	'solrstore-searchFieldSets' => 'සොල්ර්සෙවුම',
+	'solrstore-searchFieldSets-select' => 'කරුණාකර SearchSet තෝරාගන්න',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet තෝරාගන්න',
 );
 
 /** Seeltersk (Seeltersk)
