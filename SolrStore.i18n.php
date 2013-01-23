@@ -447,9 +447,15 @@ $messages['vi'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Shirayuki
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
+	'solrsearch' => 'SolrSearch',
 	'solrsearch-title' => '搜索',
+	'solrstore-error' => '错误：请检查您的查询。',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => '请选择一个SearchSet',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet 选择',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
