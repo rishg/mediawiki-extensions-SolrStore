@@ -75,6 +75,13 @@ $messages['br'] = array(
 	'solrsearch-title' => 'Klask',
 );
 
+/** Catalan (català)
+ * @author Pitort
+ */
+$messages['ca'] = array(
+	'solrsearch-title' => 'Cerca',
+);
+
 /** Czech (česky)
  * @author Vks
  */
