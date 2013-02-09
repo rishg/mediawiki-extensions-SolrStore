@@ -252,7 +252,9 @@ $messages['ja'] = array(
  * @author David1010
  */
 $messages['ka'] = array(
+	'solrsearch' => 'Solr-ის ძიება',
 	'solrsearch-title' => 'ძიება',
+	'solrstore-searchFieldSets' => 'Solr-ის ძიება',
 );
 
 /** Korean (한국어)
