@@ -46,6 +46,19 @@ $messages['ar'] = array(
 	'solrsearch-title' => 'بحث',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'solrstore-desc' => "Guetar propiedaes semántiques cola potencia d'un motor de gueta de testu completu",
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => 'Guetar',
+	'solrstore-error' => 'Error: Compruebe la consulta.',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => 'Seleicione un conxuntu de gueta SearchSet',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: Seleicione SearchSet',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
