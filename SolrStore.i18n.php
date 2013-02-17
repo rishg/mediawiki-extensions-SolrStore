@@ -21,11 +21,14 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Beta16
  * @author F.trott
+ * @author Shirayuki
  * @author Siebrand
  */
 $messages['qqq'] = array(
 	'solrstore-desc' => '{{desc}}',
-	'solrsearch' => 'The title of the Special:SolrSearch page as appearing in Special:SpecialPages. Should probably be the same as message {{msg-mw|solrstore-searchFieldSets}}',
+	'solrsearch' => 'The title of the Special:SolrSearch page as appearing in [[Special:SpecialPages]].
+
+Should probably be the same as message {{msg-mw|solrstore-searchFieldSets}}.',
 	'solrstore-error' => 'Currently we have just One Error Message, "Error: Please Check your Query"',
 	'solrstore-searchFieldSets' => 'The pagetitle (heading) of the Special:SolrSearch page',
 	'solrstore-searchFieldSets-select' => 'A SearchSet is a predefined search form for a field based search.',
