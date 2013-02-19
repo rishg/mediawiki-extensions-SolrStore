@@ -475,6 +475,7 @@ $messages['vi'] = array(
  * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
+	'solrstore-desc' => '用一个全文搜索引擎的力量搜索语义属性',
 	'solrsearch' => 'SolrSearch',
 	'solrsearch-title' => '搜索',
 	'solrstore-error' => '错误：请检查您的查询。',
