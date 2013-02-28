@@ -25,7 +25,7 @@ $messages['en'] = array(
  * @author Siebrand
  */
 $messages['qqq'] = array(
-	'solrstore-desc' => '{{desc}}',
+	'solrstore-desc' => '{{desc|name=Solr Store|url=http://www.mediawiki.org/wiki/Extension:SolrStore}}',
 	'solrsearch' => 'The title of the Special:SolrSearch page as appearing in [[Special:SpecialPages]].
 
 Should probably be the same as message {{msg-mw|solrstore-searchFieldSets}}.',
