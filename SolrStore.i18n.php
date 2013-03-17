@@ -385,6 +385,17 @@ $messages['ro'] = array(
 	'solrsearch-title' => 'Căutare',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => 'Cirche',
+	'solrstore-error' => "Errore: Pe piacere verifiche l'inderrogaziona toje.",
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => "Pe piacere scacchie 'n'inzieme de ricerche",
+);
+
 /** Russian (русский)
  * @author Eleferen
  */
