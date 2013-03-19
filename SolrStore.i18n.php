@@ -389,11 +389,13 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'solrstore-desc' => "Cirche le probbietà semandeche cu 'a putenze de 'nu motore de ricerche a teste chine",
 	'solrsearch' => 'SolrSearch',
 	'solrsearch-title' => 'Cirche',
 	'solrstore-error' => "Errore: Pe piacere verifiche l'inderrogaziona toje.",
 	'solrstore-searchFieldSets' => 'SolrSearch',
 	'solrstore-searchFieldSets-select' => "Pe piacere scacchie 'n'inzieme de ricerche",
+	'solrstore-searchFieldSets-title' => "SolrSearch: scacchie 'u 'nzieme de ricerche",
 );
 
 /** Russian (русский)
