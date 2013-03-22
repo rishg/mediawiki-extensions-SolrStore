@@ -29,6 +29,11 @@ $specialPageAliases['diq'] = array(
 	'solrsearch' => array( 'SolrCıgeyrayış', 'XısusiSolrCıgeyrayış' ),
 );
 
+/** Esperanto (Esperanto) */
+$specialPageAliases['eo'] = array(
+	'solrsearch' => array( 'Solr-serĉo' ),
+);
+
 /** Swiss German (Alemannisch) */
 $specialPageAliases['gsw'] = array(
 	'solrsearch' => array( 'Solr-Suech' ),
