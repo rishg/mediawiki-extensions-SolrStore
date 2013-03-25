@@ -26,8 +26,7 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'solrstore-desc' => '{{desc|name=Solr Store|url=http://www.mediawiki.org/wiki/Extension:SolrStore}}',
-	'solrsearch' => 'The title of the Special:SolrSearch page as appearing in [[Special:SpecialPages]].
-
+	'solrsearch' => '{{doc-special|SolrSearch}}
 Should probably be the same as message {{msg-mw|solrstore-searchFieldSets}}.',
 	'solrstore-error' => 'Currently we have just One Error Message, "Error: Please Check your Query"',
 	'solrstore-searchFieldSets' => 'The pagetitle (heading) of the Special:SolrSearch page',
