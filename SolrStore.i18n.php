@@ -28,6 +28,10 @@ $messages['qqq'] = array(
 	'solrstore-desc' => '{{desc|name=Solr Store|url=http://www.mediawiki.org/wiki/Extension:SolrStore}}',
 	'solrsearch' => '{{doc-special|SolrSearch}}
 Should probably be the same as message {{msg-mw|solrstore-searchFieldSets}}.',
+	'solrsearch-title' => 'Used as page title, if the fieldset name is not empty.
+
+This message is followed by ": " and the fieldset name.
+{{Identical|Search}}',
 	'solrstore-error' => 'Currently we have just One Error Message, "Error: Please Check your Query"',
 	'solrstore-searchFieldSets' => 'The pagetitle (heading) of the Special:SolrSearch page',
 	'solrstore-searchFieldSets-select' => 'A SearchSet is a predefined search form for a field based search.',
