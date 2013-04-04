@@ -18,7 +18,10 @@ $messages['en'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet select',
 );
 
-/** Message documentation (Message documentation)
+/** Message documentation (This is the name of the message documentation language code (qqq). Follow the rules of your languages and use small first letter if it doesn't capitalize language names always.
+
+It might be easier to translate it as "translation guidelines" or "translation help".
+{{Identical|Message documentation}})
  * @author Beta16
  * @author F.trott
  * @author Shirayuki
