@@ -289,6 +289,19 @@ $messages['ko'] = array(
 	'solrstore-searchFieldSets-title' => 'SolrSearch: SearchSet 선택',
 );
 
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'solrstore-desc' => 'Söhk noh semantesche Eijeschaffte met dä Kraff vun enem Projramm, wat volle Täxte dorschsöhke kann.',
+	'solrsearch' => 'Solr Söhke',
+	'solrsearch-title' => 'Söhke',
+	'solrstore-error' => 'Ene Fähler es opjetrodde: Donn Ding Aanfrooch prööve.',
+	'solrstore-searchFieldSets' => 'Söhke met Solr',
+	'solrstore-searchFieldSets-select' => 'Donn ene Söhkopdraach ußwähle',
+	'solrstore-searchFieldSets-title' => 'Solr Söhke: Donn ene Söhkopdraach ußwähle',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -480,10 +493,15 @@ $messages['ur'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
  * @author පසිඳු කාවින්ද
  */
 $messages['vi'] = array(
+	'solrstore-desc' => 'Tìm kiếm thuộc tính ngữ nghĩa với công cụ tìm kiếm toàn văn',
+	'solrsearch' => 'Tìm kiếm Solr',
 	'solrsearch-title' => 'Tìm kiếm',
+	'solrstore-error' => 'Lỗi: Xin vui lòng kiểm tra truy vấn của bạn.',
+	'solrstore-searchFieldSets' => 'Tìm kiếm Solr',
 );
 
 /** Simplified Chinese (中文（简体）‎)

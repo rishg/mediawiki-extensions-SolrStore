@@ -68,3 +68,8 @@ $specialPageAliases['nl'] = array(
 $specialPageAliases['scn'] = array(
 	'solrsearch' => array( 'RicercaSolr' ),
 );
+
+/** Vietnamese (Tiếng Việt) */
+$specialPageAliases['vi'] = array(
+	'solrsearch' => array( 'Tìm_kiếm_Solr' ),
+);
