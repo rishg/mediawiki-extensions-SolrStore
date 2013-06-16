@@ -502,6 +502,8 @@ $messages['vi'] = array(
 	'solrsearch-title' => 'Tìm kiếm',
 	'solrstore-error' => 'Lỗi: Xin vui lòng kiểm tra truy vấn của bạn.',
 	'solrstore-searchFieldSets' => 'Tìm kiếm Solr',
+	'solrstore-searchFieldSets-select' => 'Xin vui lòng chọn một SearchSet',
+	'solrstore-searchFieldSets-title' => 'SolrSearch: lựa chọn SearchSet',
 );
 
 /** Simplified Chinese (中文（简体）‎)
