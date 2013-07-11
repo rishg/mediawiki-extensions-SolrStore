@@ -34,6 +34,11 @@ $specialPageAliases['eo'] = array(
 	'solrsearch' => array( 'Solr-serĉo' ),
 );
 
+/** Persian (فارسی) */
+$specialPageAliases['fa'] = array(
+	'solrsearch' => array( 'جستجوی_سولر' ),
+);
+
 /** Swiss German (Alemannisch) */
 $specialPageAliases['gsw'] = array(
 	'solrsearch' => array( 'Solr-Suech' ),
