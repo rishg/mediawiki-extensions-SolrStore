@@ -108,6 +108,13 @@ $messages['cs'] = array(
 	'solrsearch-title' => 'Hledat',
 );
 
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'solrsearch-title' => 'исканиѥ',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author SBachenberg
