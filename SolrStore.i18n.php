@@ -382,10 +382,11 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
+ * @author Luckas
  * @author SandroHc
  */
 $messages['pt'] = array(
-	'solrsearch-title' => 'Procurar',
+	'solrsearch-title' => 'Pesquisar',
 );
 
 /** Brazilian Portuguese (português do Brasil)
