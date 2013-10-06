@@ -6,6 +6,7 @@
  * @file
  * @author Simon Bachenberg
  */
+// @codingStandardsIgnoreFile
 
 $specialPageAliases = array();
 

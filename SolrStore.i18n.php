@@ -424,10 +424,13 @@ $messages['roa-tara'] = array(
 
 /** Russian (русский)
  * @author Eleferen
+ * @author Okras
  */
 $messages['ru'] = array(
 	'solrstore-desc' => 'Семантический поиск с использованием ресурсов полнотекстовой поисковой системы',
 	'solrsearch' => 'SolrSearch',
+	'solrsearch-title' => 'Поиск',
+	'solrstore-error' => 'Ошибка: пожалуйста, проверьте ваш запрос.',
 	'solrstore-searchFieldSets' => 'SolrSearch',
 	'solrstore-searchFieldSets-select' => 'Выберите, пожалуйста, SearchSet',
 	'solrstore-searchFieldSets-title' => 'SolrSearch: Выбор SearchSet',
