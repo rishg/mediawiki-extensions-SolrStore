@@ -383,10 +383,11 @@ $messages['ps'] = array(
 
 /** Portuguese (português)
  * @author Luckas
+ * @author Polyethylen
  * @author SandroHc
  */
 $messages['pt'] = array(
-	'solrsearch-title' => 'Pesquisar',
+	'solrsearch-title' => 'Procurar',
 );
 
 /** Brazilian Portuguese (português do Brasil)
