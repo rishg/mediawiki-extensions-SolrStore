@@ -457,10 +457,14 @@ $messages['stq'] = array(
 );
 
 /** Swedish (svenska)
+ * @author Jopparn
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'solrsearch-title' => 'Sök',
+	'solrstore-error' => 'Fel: Kontrollera din fråga.',
+	'solrstore-searchFieldSets' => 'SolrSearch',
+	'solrstore-searchFieldSets-select' => 'Välj en SearchSet',
 );
 
 /** Tamil (தமிழ்)
