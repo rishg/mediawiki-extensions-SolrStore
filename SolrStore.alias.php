@@ -57,7 +57,7 @@ $specialPageAliases['ja'] = array(
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
-	'solrsearch' => array( 'Solr찾기', 'Solr검색', '특수Solr찾기', '특수Solr검색' ),
+	'solrsearch' => array( 'Solr검색', '특수Solr검색', 'Solr찾기', '특수Solr찾기' ),
 );
 
 /** Macedonian (македонски) */
