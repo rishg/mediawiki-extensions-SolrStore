@@ -287,9 +287,9 @@ $messages['ka'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'solrstore-desc' => '전체 텍스트 검색 엔진의 힘으로 의미적 속성 찾기',
+	'solrstore-desc' => '전체 텍스트 검색 엔진의 힘으로 의미적 속성을 검색합니다',
 	'solrsearch' => 'SolrSearch',
-	'solrsearch-title' => '찾기',
+	'solrsearch-title' => '검색',
 	'solrstore-error' => '오류: 쿼리를 확인하세요',
 	'solrstore-searchFieldSets' => 'SolrSearch',
 	'solrstore-searchFieldSets-select' => 'SearchSet를 선택하세요.',
