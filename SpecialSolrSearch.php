@@ -2,14 +2,13 @@
 
 /**
  * SolrStore: The SolrStore Extesion is Semantic Mediawiki Searchprovieder based on Apache Solr.
- * 
+ *
  * This is the SpecialPage, displaying the SearchSets and Results
- * 
+ *
  * @defgroup SolrStore
  * @author Simon Bachenberg, Sascha Schueller
  */
 class SpecialSolrSearch extends SpecialPage {
-
 	/**
 	 * Set up basic search parameters from the request and user settings.
 	 * Typically you'll pass $wgRequest and $wgUser.
@@ -19,12 +18,10 @@ class SpecialSolrSearch extends SpecialPage {
 	 */
 	public function __construct() {
 		parent::__construct( "SolrSearch" );
-		global $wgRequest, $wgUser;
-		$user = $wgUser;
+		global $wgRequest;
 		$request = $wgRequest;
 		list( $this->limit, $this->offset ) = $request->getLimitOffset( 20, 'searchlimit' );
 
-		$this->sk = $user->getSkin();
 		$this->didYouMeanHtml = ''; # html of did you mean... link
 	}
 
@@ -79,9 +76,6 @@ class SpecialSolrSearch extends SpecialPage {
 		global $wgOut, $wgUser, $wgScript, $wgSolrFields;
 		wfProfileIn( __METHOD__ );
 
-		//$sk = $wgUser->getSkin ();
-
-
 		$wgOut->setPageTitle( wfMsg( 'solrstore-searchFieldSets-title' ) );
 		$wgOut->setHTMLTitle( wfMsg( 'pagetitle', wfMsg( 'solrstore-searchFieldSets-title', 'SolrSearch: Select FieldSet' ) ) );
 
@@ -105,10 +99,8 @@ class SpecialSolrSearch extends SpecialPage {
 	 * @param $fieldSet String
 	 */
 	public function showResults( $fieldSet ) {
-		global $wgOut, $wgUser, $wgContLang, $wgScript, $wgSolrShowRelated, $wgSolrDebug;
+		global $wgOut, $wgContLang, $wgScript, $wgSolrShowRelated, $wgSolrDebug;
 		wfProfileIn( __METHOD__ );
-
-		$sk = $wgUser->getSkin();
 
 		$this->searchEngine = SearchEngine::create();
 		$search = & $this->searchEngine;
@@ -166,7 +158,7 @@ class SpecialSolrSearch extends SpecialPage {
 				if ( $suggestionSnippet == '' )
 					$suggestionSnippet = null;
 
-				$suggestLink = $sk->linkKnown(
+				$suggestLink = Linker::linkKnown(
 						$st, $suggestionSnippet, array( ), $stParams
 				);
 
@@ -369,7 +361,7 @@ class SpecialSolrSearch extends SpecialPage {
 	 * @param $fieldSets Array: terms to highlight
 	 */
 	protected function showHit( $result, $fieldSets ) {
-		global $wgLang, $wgUser;
+		global $wgLang;
 		wfProfileIn( __METHOD__ );
 
 		if ( $result->isBrokenTitle() ) {
@@ -377,7 +369,6 @@ class SpecialSolrSearch extends SpecialPage {
 			return "<!-- Broken link in search result -->\n";
 		}
 
-		$sk = $wgUser->getSkin();
 		$t = $result->getTitle();
 
 		$titleSnippet = $result->getTitleSnippet( $fieldSets );
@@ -389,7 +380,7 @@ class SpecialSolrSearch extends SpecialPage {
 
 		wfRunHooks( 'ShowSearchHitTitle', array( &$link_t, &$titleSnippet, $result, $fieldSets, $this ) );
 
-		$link = $this->sk->linkKnown(
+		$link = Linker::linkKnown(
 				$link_t, $titleSnippet
 		);
 		// FÜLLEN
@@ -423,7 +414,7 @@ class SpecialSolrSearch extends SpecialPage {
 				$redirectText = null;
 
 			$redirect = "<span class='searchalttitle'>" .
-					wfMsg( 'search-redirect', $this->sk->linkKnown( $redirectTitle, $redirectText ) ) .
+					wfMsg( 'search-redirect', Linker::linkKnown( $redirectTitle, $redirectText ) ) .
 					"</span>";
 		}
 
@@ -435,7 +426,7 @@ class SpecialSolrSearch extends SpecialPage {
 				$sectionText = null;
 
 			$section = "<span class='searchalttitle'>" .
-					wfMsg( 'search-section', $this->sk->linkKnown( $sectionTitle, $sectionText ) ) .
+					wfMsg( 'search-section', Linker::linkKnown( $sectionTitle, $sectionText ) ) .
 					"</span>";
 		}
 
@@ -455,7 +446,7 @@ class SpecialSolrSearch extends SpecialPage {
 		$byteSize = $result->getByteSize();
 		$wordCount = $result->getWordCount();
 		$timestamp = $result->getTimestamp();
-		$size = wfMsgExt( 'search-result-size', array( 'parsemag', 'escape' ), $this->sk->formatSize( $byteSize ), $wgLang->formatNum( $wordCount ) );
+		$size = wfMsgExt( 'search-result-size', array( 'parsemag', 'escape' ), Linker::formatSize( $byteSize ), $wgLang->formatNum( $wordCount ) );
 
 		if ( $t->getNamespace() == NS_CATEGORY ) {
 			$cat = Category::newFromTitle( $t );
@@ -469,7 +460,7 @@ class SpecialSolrSearch extends SpecialPage {
 		if ( $result->hasRelated() ) {
 			$st = SpecialPage::getTitleFor( 'SolrSearch' );
 			$stParams = array( 'solrsearch'=>wfMsgForContent( 'searchrelated' ) . ':' . $t->getPrefixedText() );
-			$related = ' -- ' . $sk->linkKnown( $st, wfMsg( 'search-relatedarticle' ), array( ), $stParams );
+			$related = ' -- ' . Linker::linkKnown( $st, wfMsg( 'search-relatedarticle' ), array( ), $stParams );
 		}
 
 		// Include a thumbnail for media files...
