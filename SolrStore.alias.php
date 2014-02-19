@@ -20,6 +20,11 @@ $specialPageAliases['ar'] = array(
 	'solrsearch' => array( 'بحث_سولر', 'خاص_بحث_سولر' ),
 );
 
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'solrsearch' => array( 'تدوير_سولر', 'خاص-تدوير_سولر' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'solrsearch' => array( 'Solr-Suche' ),
@@ -78,4 +83,9 @@ $specialPageAliases['scn'] = array(
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'solrsearch' => array( 'Tìm_kiếm_Solr' ),
+);
+
+/** Simplified Chinese (中文（简体）‎) */
+$specialPageAliases['zh-hans'] = array(
+	'solrsearch' => array( 'Solr搜索', '特殊Solr搜索' ),
 );
