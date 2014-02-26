@@ -151,10 +151,12 @@ $messages['es'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Mjbmr
  */
 $messages['fa'] = array(
 	'solrsearch-title' => 'جستجو',
+	'solrstore-error' => 'خطا: لطفاً سوال خود را بررسی کنید.',
 );
 
 /** Finnish (suomi)
