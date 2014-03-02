@@ -155,8 +155,13 @@ $messages['es'] = array(
  * @author Mjbmr
  */
 $messages['fa'] = array(
+	'solrstore-desc' => 'جستجو خاصیت‌های معنایی با قدرت موتور جستجو متن کامل',
+	'solrsearch' => 'جستجو سولار',
 	'solrsearch-title' => 'جستجو',
 	'solrstore-error' => 'خطا: لطفاً سوال خود را بررسی کنید.',
+	'solrstore-searchFieldSets' => 'جستجو سولار',
+	'solrstore-searchFieldSets-select' => 'لطفا یک تنظیم جستجو را انتخاب کنید',
+	'solrstore-searchFieldSets-title' => 'جستجو سولارː انتخاب تنظیم جستجو',
 );
 
 /** Finnish (suomi)
