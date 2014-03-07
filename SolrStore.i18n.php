@@ -152,6 +152,7 @@ $messages['es'] = array(
 
 /** Persian (فارسی)
  * @author Armin1392
+ * @author Ebraminio
  * @author Mjbmr
  */
 $messages['fa'] = array(
@@ -160,7 +161,7 @@ $messages['fa'] = array(
 	'solrsearch-title' => 'جستجو',
 	'solrstore-error' => 'خطا: لطفاً سوال خود را بررسی کنید.',
 	'solrstore-searchFieldSets' => 'جستجو سولار',
-	'solrstore-searchFieldSets-select' => 'لطفا یک تنظیم جستجو را انتخاب کنید',
+	'solrstore-searchFieldSets-select' => 'لطفاً یک تنظیم جستجو را انتخاب کنید',
 	'solrstore-searchFieldSets-title' => 'جستجو سولارː انتخاب تنظیم جستجو',
 );
 
