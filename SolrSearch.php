@@ -505,19 +505,6 @@ class SolrSearchSet extends SearchResultSet {
 	}
 
 	/**
-	 * Return information about how and from where the results were fetched,
-	 * should be useful for diagnostics and debugging
-	 *
-	 * @return string
-	 */
-	function getInfo() {
-		if ( is_null( $this->mInfo ) ) {
-			return null;
-		}
-		return 'Search results fetched via ' . $this->mInfo;
-	}
-
-	/**
 	 * Return a result set of hits on other (multiple) wikis associated with this one
 	 *
 	 * @return SearchResultSet

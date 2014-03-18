@@ -336,12 +336,7 @@ class SpecialSolrSearch extends SpecialPage {
 
 		$fieldSets = $wgContLang->convertForSearchResult( $matches->termMatches() );
 
-		$out = "";
-		$infoLine = $matches->getInfo();
-		if ( !is_null( $infoLine ) ) {
-			$out .= "\n<!-- {$infoLine} -->\n";
-		}
-		$out .= "<ul class='mw-search-results'>\n";
+		$out = "<ul class='mw-search-results'>\n";
 
 		while ( $result = $matches->next() ) {
 			$out .= $this->showHit( $result, $fieldSets );
