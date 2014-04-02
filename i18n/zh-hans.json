@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shirayuki",
+            "Yfdyh000"
+        ]
+    },
+    "solrstore-desc": "用一个全文搜索引擎的力量搜索语义属性",
+    "solrsearch": "SolrSearch",
+    "solrsearch-title": "搜索",
+    "solrstore-error": "错误：请检查您的查询。",
+    "solrstore-searchFieldSets": "SolrSearch",
+    "solrstore-searchFieldSets-select": "请选择一个SearchSet",
+    "solrstore-searchFieldSets-title": "SolrSearch: SearchSet 选择"
+}

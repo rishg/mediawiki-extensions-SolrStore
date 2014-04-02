@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Jaideraf"
+        ]
+    },
+    "solrstore-desc": "Busca por propriedades semânticas com a força de um motor de busca por texto completo.",
+    "solrsearch": "SolrSearch",
+    "solrsearch-title": "Busca",
+    "solrstore-error": "Erro: Por favor, verifique a sua consulta.",
+    "solrstore-searchFieldSets": "SolrSearch",
+    "solrstore-searchFieldSets-select": "Por favor, selecione uma busca",
+    "solrstore-searchFieldSets-title": "SolrSearch: seleção de busca"
+}

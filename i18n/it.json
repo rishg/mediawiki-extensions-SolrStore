@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Beta16"
+        ]
+    },
+    "solrstore-desc": "Proprietà semantiche di ricerca con la potenza di un motore di ricerca full-text",
+    "solrsearch": "SolrSearch",
+    "solrsearch-title": "Ricerca",
+    "solrstore-error": "Errore: verifica la tua ricerca.",
+    "solrstore-searchFieldSets": "SolrSearch",
+    "solrstore-searchFieldSets-select": "Si prega di selezionare un SearchSet",
+    "solrstore-searchFieldSets-title": "SolrSearch: seleziona SearchSet"
+}

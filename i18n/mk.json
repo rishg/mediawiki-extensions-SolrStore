@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bjankuloski06"
+        ]
+    },
+    "solrstore-desc": "Пребарување на семантички својства со способностите на пребарувачот на полн текст",
+    "solrsearch": "SolrSearch",
+    "solrsearch-title": "Пребарување",
+    "solrstore-error": "Грешка: Проверете го барањето.",
+    "solrstore-searchFieldSets": "SolrSearch",
+    "solrstore-searchFieldSets-select": "Изберете SearchSet",
+    "solrstore-searchFieldSets-title": "SolrSearch: Избор на SearchSet"
+}

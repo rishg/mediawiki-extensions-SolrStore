@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Gomoko"
+        ]
+    },
+    "solrstore-desc": "Rechercher des propriétés avec la puissance d'un moteur de recherche plein texte",
+    "solrsearch": "SolrSearch",
+    "solrsearch-title": "Rechercher",
+    "solrstore-error": "Erreur: Veuillez vérifier votre requête.",
+    "solrstore-searchFieldSets": "SolrSearch",
+    "solrstore-searchFieldSets-select": "Veuillez sélectionner un SearchSet",
+    "solrstore-searchFieldSets-title": "SolrSearch: choix de SearchSet"
+}

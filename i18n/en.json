@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Simon Bachenberg"
+        ]
+    },
+    "solrstore-desc": "Search semantic properties with the power of a fulltext search engine",
+    "solrsearch": "SolrSearch",
+    "solrsearch-title": "Search",
+    "solrstore-error": "Error: Please check your query.",
+    "solrstore-searchFieldSets": "SolrSearch",
+    "solrstore-searchFieldSets-select": "Please select a SearchSet",
+    "solrstore-searchFieldSets-title": "SolrSearch: SearchSet select"
+}

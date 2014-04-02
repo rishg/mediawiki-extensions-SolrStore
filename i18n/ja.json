@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shirayuki"
+        ]
+    },
+    "solrstore-desc": "全文検索エンジンの力で意味的プロパティを検索する",
+    "solrsearch": "SolrSearch",
+    "solrsearch-title": "検索",
+    "solrstore-searchFieldSets": "SolrSearch"
+}

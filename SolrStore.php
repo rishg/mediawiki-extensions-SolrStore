@@ -1,13 +1,12 @@
 <?php
-
 /**
  * The SolrStore Extension is a Semantic Mediawiki Search provider based on
  * Apache Solr.
  *
  * @defgroup SolrStore
  * @author Stephan Gambke, Simon Bachenberg, Sascha Schueller
- * @version 0.6 Beta
  */
+
 /**
  * The main file of the SolrConnector extension
  *
@@ -25,7 +24,7 @@ if ( !defined( 'SMW_VERSION' ) ) {
 /**
  * The Solr Connector version
  */
-define( 'SC_VERSION', '0.6 Beta' );
+define( 'SC_VERSION', '0.7 Beta' );
 
 // register the extension
 // TODO: Add other authors here and in the file header
@@ -43,6 +42,7 @@ $wgExtensionCredits[ defined( 'SEMANTIC_EXTENSION_TYPE' ) ? 'semantic' : 'other'
 $dir = dirname( __FILE__ );
 
 // register message file
+$wgMessagesDirs['SolrStore'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles[ 'SolrStore' ]		= $dir . '/SolrStore.i18n.php';
 $wgExtensionMessagesFiles[ 'SolrStoreAlias' ]	= $dir . '/SolrStore.alias.php';
 

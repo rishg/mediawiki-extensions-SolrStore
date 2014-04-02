@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Purodha"
+        ]
+    },
+    "solrstore-desc": "Söhk noh semantesche Eijeschaffte met dä Kraff vun enem Projramm, wat volle Täxte dorschsöhke kann.",
+    "solrsearch": "Solr Söhke",
+    "solrsearch-title": "Söhke",
+    "solrstore-error": "Ene Fähler es opjetrodde: Donn Ding Aanfrooch prööve.",
+    "solrstore-searchFieldSets": "Söhke met Solr",
+    "solrstore-searchFieldSets-select": "Donn ene Söhkopdraach ußwähle",
+    "solrstore-searchFieldSets-title": "Solr Söhke: Donn ene Söhkopdraach ußwähle"
+}

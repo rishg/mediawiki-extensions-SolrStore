@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michawiki"
+        ]
+    },
+    "solrstore-desc": "Pytanje za semantiskimi atributami z połnotekstowej pytawu",
+    "solrsearch": "SolrSearch",
+    "solrsearch-title": "Pytać",
+    "solrstore-error": "Zmylk: Prošu přepruwuj swoje naprašowanje.",
+    "solrstore-searchFieldSets": "SolrSearch",
+    "solrstore-searchFieldSets-select": "Prošu wubjer pytansku sadźbu",
+    "solrstore-searchFieldSets-title": "SolrSearch: Wuběr pytanskich sadźbow"
+}
