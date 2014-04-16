@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "McDutchie"
-        ]
-    },
-    "solrstore-desc": "Cercar proprietates semantic con le poter de un motor de recerca de plen texto",
-    "solrsearch": "SolrSearch",
-    "solrsearch-title": "Recerca",
-    "solrstore-error": "Error: Per favor verifica tu consulta.",
-    "solrstore-searchFieldSets": "SolrSearch",
-    "solrstore-searchFieldSets-select": "Per favor selige un SearchSet",
-    "solrstore-searchFieldSets-title": "SolrSearch: selection de SearchSet"
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"solrstore-desc": "Cercar proprietates semantic con le poter de un motor de recerca de plen texto",
+	"solrsearch": "SolrSearch",
+	"solrsearch-title": "Recerca",
+	"solrstore-error": "Error: Per favor verifica tu consulta.",
+	"solrstore-searchFieldSets": "SolrSearch",
+	"solrstore-searchFieldSets-select": "Per favor selige un SearchSet",
+	"solrstore-searchFieldSets-title": "SolrSearch: selection de SearchSet"
 }

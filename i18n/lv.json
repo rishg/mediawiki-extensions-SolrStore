@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Papuass"
-        ]
-    },
-    "solrstore-error": "Kļūda: Lūdzu, pārbaudiet savu vaicājumu."
+	"@metadata": {
+		"authors": [
+			"Papuass"
+		]
+	},
+	"solrstore-error": "Kļūda: Lūdzu, pārbaudiet savu vaicājumu."
 }

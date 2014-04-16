@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Kghbln"
-        ]
-    },
-    "solrstore-error": "Fehler: Bitte überprüfen Sie die Suchanfrage."
+	"@metadata": {
+		"authors": [
+			"Kghbln"
+		]
+	},
+	"solrstore-error": "Fehler: Bitte überprüfen Sie die Suchanfrage."
 }

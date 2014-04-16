@@ -1,15 +1,15 @@
 {
-    "@metadata": {
-        "authors": [
-            "SPQRobin",
-            "Siebrand"
-        ]
-    },
-    "solrstore-desc": "Semantische eigenschappen doorzoeken met de kracht van een fulltext zoekmachine",
-    "solrsearch": "SolrSearch",
-    "solrsearch-title": "Zoeken",
-    "solrstore-error": "Fout: controleer uw zoekopdracht.",
-    "solrstore-searchFieldSets": "SolrSearch",
-    "solrstore-searchFieldSets-select": "Selecteer een SearchSet",
-    "solrstore-searchFieldSets-title": "SolrSearch: SearchSet selecteren"
+	"@metadata": {
+		"authors": [
+			"SPQRobin",
+			"Siebrand"
+		]
+	},
+	"solrstore-desc": "Semantische eigenschappen doorzoeken met de kracht van een fulltext zoekmachine",
+	"solrsearch": "SolrSearch",
+	"solrsearch-title": "Zoeken",
+	"solrstore-error": "Fout: controleer uw zoekopdracht.",
+	"solrstore-searchFieldSets": "SolrSearch",
+	"solrstore-searchFieldSets-select": "Selecteer een SearchSet",
+	"solrstore-searchFieldSets-title": "SolrSearch: SearchSet selecteren"
 }

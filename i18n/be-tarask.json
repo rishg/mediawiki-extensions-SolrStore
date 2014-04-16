@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "EugeneZelenko",
-            "Jim-by",
-            "Wizardist"
-        ]
-    },
-    "solrstore-desc": "Пошук сэмантычных уласьцівасьцяў з выкарыстаньнем рухавіка поўнатэкстнага пошуку",
-    "solrsearch": "SolrSearch",
-    "solrsearch-title": "Пошук",
-    "solrstore-error": "Памылка: праверце, калі ласка, запыт.",
-    "solrstore-searchFieldSets": "SolrSearch",
-    "solrstore-searchFieldSets-select": "Калі ласка, выберыце SearchSet",
-    "solrstore-searchFieldSets-title": "SolrSearch: выбар SearchSet"
+	"@metadata": {
+		"authors": [
+			"EugeneZelenko",
+			"Jim-by",
+			"Wizardist"
+		]
+	},
+	"solrstore-desc": "Пошук сэмантычных уласьцівасьцяў з выкарыстаньнем рухавіка поўнатэкстнага пошуку",
+	"solrsearch": "SolrSearch",
+	"solrsearch-title": "Пошук",
+	"solrstore-error": "Памылка: праверце, калі ласка, запыт.",
+	"solrstore-searchFieldSets": "SolrSearch",
+	"solrstore-searchFieldSets-select": "Калі ласка, выберыце SearchSet",
+	"solrstore-searchFieldSets-title": "SolrSearch: выбар SearchSet"
 }

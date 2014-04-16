@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "solrsearch": "සොල්ර්සෙවුම",
-    "solrsearch-title": "සොයන්න",
-    "solrstore-error": "දෝෂය: කරුණාකර ඔබේ ප්‍රශ්නය පරික්ෂා කරන්න.",
-    "solrstore-searchFieldSets": "සොල්ර්සෙවුම",
-    "solrstore-searchFieldSets-select": "කරුණාකර SearchSet තෝරාගන්න",
-    "solrstore-searchFieldSets-title": "SolrSearch: SearchSet තෝරාගන්න"
+	"@metadata": {
+		"authors": [
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"solrsearch": "සොල්ර්සෙවුම",
+	"solrsearch-title": "සොයන්න",
+	"solrstore-error": "දෝෂය: කරුණාකර ඔබේ ප්‍රශ්නය පරික්ෂා කරන්න.",
+	"solrstore-searchFieldSets": "සොල්ර්සෙවුම",
+	"solrstore-searchFieldSets-select": "කරුණාකර SearchSet තෝරාගන්න",
+	"solrstore-searchFieldSets-title": "SolrSearch: SearchSet තෝරාගන්න"
 }

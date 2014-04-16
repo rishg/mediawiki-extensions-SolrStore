@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "David1010"
-        ]
-    },
-    "solrsearch": "Solr-ის ძიება",
-    "solrsearch-title": "ძიება",
-    "solrstore-searchFieldSets": "Solr-ის ძიება"
+	"@metadata": {
+		"authors": [
+			"David1010"
+		]
+	},
+	"solrsearch": "Solr-ის ძიება",
+	"solrsearch-title": "ძიება",
+	"solrstore-searchFieldSets": "Solr-ის ძიება"
 }
