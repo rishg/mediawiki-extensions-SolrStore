@@ -458,7 +458,7 @@ class SolrSearchSet extends SearchResultSet {
 // @todo FIXME: This doesn't handle parenthetical expressions.
 		$regexes = array( );
 		$m = array( );
-		$lc = SearchEngine::legalSearchChars();
+		$lc = $this->legalSearchChars();
 		if ( preg_match_all( '/([-+<>~]?)(([' . $lc . ']+)(\*?)|"[^"]*")/', $resq, $m, PREG_SET_ORDER ) ) {
 			foreach ( $m as $terms ) {
 				if ( !empty( $terms[ 3 ] ) ) {
