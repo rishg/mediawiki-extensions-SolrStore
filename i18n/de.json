@@ -11,6 +11,6 @@
 	"solrsearch-title": "Suche",
 	"solrstore-error": "Fehler: Bitte überprüfe die Suchanfrage.",
 	"solrstore-searchFieldSets": "Suche",
-	"solrstore-searchFieldSets-select": "Bitte wähle ein SearchSet aus",
-	"solrstore-searchFieldSets-title": "SolrSearch: SearchSet Auswahl"
+	"solrstore-searchFieldSets-select": "Bitte ein Suchformular auswählen",
+	"solrstore-searchFieldSets-title": "SolrSearch: Auswahl des Suchformulars"
 }
