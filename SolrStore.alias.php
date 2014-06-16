@@ -50,6 +50,11 @@ $specialPageAliases['gsw'] = array(
 	'solrsearch' => array( 'Solr-Suech' ),
 );
 
+/** Upper Sorbian (hornjoserbsce) */
+$specialPageAliases['hsb'] = array(
+	'solrsearch' => array( 'Solr-pytanje' ),
+);
+
 /** Italian (italiano) */
 $specialPageAliases['it'] = array(
 	'solrsearch' => array( 'RicercaSolr' ),
