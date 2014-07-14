@@ -2,11 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Jopparn",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Lokal Profil"
 		]
 	},
+	"solrstore-desc": "Sök semantiska egenskaper med kraften av en fulltext-sökmotor",
+	"solrsearch": "SolrSearch",
 	"solrsearch-title": "Sök",
 	"solrstore-error": "Fel: Kontrollera din fråga.",
 	"solrstore-searchFieldSets": "SolrSearch",
-	"solrstore-searchFieldSets-select": "Välj en SearchSet"
+	"solrstore-searchFieldSets-select": "Välj en SearchSet",
+	"solrstore-searchFieldSets-title": "SolrSearch: Välj SearchSet"
 }
