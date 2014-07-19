@@ -383,7 +383,7 @@ class SpecialSolrSearch extends SpecialPage {
 		//This is not quite safe, but better than showing excerpts from non-readable pages
 		//Note that hiding the entry entirely would screw up paging.
 		// ---- HIER
-		if ( !$t->userCanRead() ) {
+		if ( !$t->userCan( 'read' ) ) {
 			wfProfileOut( __METHOD__ );
 			return "<li>{$link}</li>\n";
 		}
