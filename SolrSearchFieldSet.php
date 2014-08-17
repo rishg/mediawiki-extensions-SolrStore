@@ -21,11 +21,11 @@
  */
 class SolrSearchFieldSet {
 
-	var $mName;
-	var $mFields;
-	var $mLable;
-	var $mQuery;
-	var $mFieldSeperator;
+	public $mName;
+	public $mFields;
+	public $mLable;
+	public $mQuery;
+	public $mFieldSeperator;
 
 	public function __construct( $name, $fields = 'search', $lable = 'Alles', $query = null, $fieldSeperator = null ) {
 		$this->mName = $name;

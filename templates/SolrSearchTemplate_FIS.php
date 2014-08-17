@@ -18,21 +18,21 @@
  */
 class SolrSearchTemplate_FIS {
 
-	var $mTitle = null;
-	var $mRedirectTitle = null;
-	var $mHighlightSection = null;
-	var $mSectionTitle = null;
-	var $mDate = null;
-	var $mScore = null;
-	var $mSize = null;
-	var $Inhalt_de_t = null;
-	var $mHighlightText = null;
-	var $mHighlightTitle = null;
-	var $mWordCount = null;
-	var $category = null;
-	var $higherdept = null;
-	var $maindept = null;
-	var $methode = null;
+	public $mTitle = null;
+	public $mRedirectTitle = null;
+	public $mHighlightSection = null;
+	public $mSectionTitle = null;
+	public $mDate = null;
+	public $mScore = null;
+	public $mSize = null;
+	public $Inhalt_de_t = null;
+	public $mHighlightText = null;
+	public $mHighlightTitle = null;
+	public $mWordCount = null;
+	public $category = null;
+	public $higherdept = null;
+	public $maindept = null;
+	public $methode = null;
 
 	public function applyTemplate( $xml ) {
 		global $wgSolrFields;

@@ -13,16 +13,16 @@
  */
 class SolrSearchTemplate_Standart {
 
-	var $mTitle = null;
-	var $mRedirectTitle = null;
-	var $mHighlightSection = null;
-	var $mSectionTitle = null;
-	var $mDate = null;
-	var $mScore = null;
-	var $mSize = null;
-	var $mHighlightText = null;
-	var $mHighlightTitle = null;
-	var $mWordCount = null;
+	public $mTitle = null;
+	public $mRedirectTitle = null;
+	public $mHighlightSection = null;
+	public $mSectionTitle = null;
+	public $mDate = null;
+	public $mScore = null;
+	public $mSize = null;
+	public $mHighlightText = null;
+	public $mHighlightTitle = null;
+	public $mWordCount = null;
 
 	public function applyTemplate( $xml ) { // DONT TOUCH
 		$snipmax = 50;

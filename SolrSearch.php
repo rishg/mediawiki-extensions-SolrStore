@@ -14,13 +14,13 @@
  */
 class SolrSearch extends SearchEngine {
 
-	var $limit = 10;
-	var $offset = 0;
-	var $prefix = '';
-	var $searchTerms = array( );
-	var $namespaces = array( NS_MAIN );
-	var $showRedirects = false;
-	var $solrTalker;
+	public $limit = 10;
+	public $offset = 0;
+	public $prefix = '';
+	public $searchTerms = array( );
+	public $namespaces = array( NS_MAIN );
+	public $showRedirects = false;
+	public $solrTalker;
 
 	function __construct( $db = null ) {
 		global $wgSolrTalker;
