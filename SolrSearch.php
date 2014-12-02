@@ -57,9 +57,9 @@ class SolrSearch extends SearchEngine {
 	/**
 	 * PrefixSearchBackend override for OpenSearch results
 	 */
-	static function prefixSearch( $ns, $search, $limit, &$results ) {
+	static function prefixSearch( $ns, $search, $limit, &$results, $offset = 0 ) {
 		echo 'Prefix Search!<br />'; // @todo Is this a debug line? Certainly looks like one...if so, comment out/remove!
-		$it = SolrSearchSet::newFromQuery( 'prefix', $search, $ns, $limit, 0 );
+		$it = SolrSearchSet::newFromQuery( 'prefix', $search, $ns, $limit, $offset );
 		$results = array( );
 		if ( $it ) { // $it can be null
 			while ( $res = $it->next() ) {
