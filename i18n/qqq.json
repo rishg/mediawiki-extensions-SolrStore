@@ -4,10 +4,11 @@
 			"Beta16",
 			"F.trott",
 			"Shirayuki",
-			"Siebrand"
+			"Siebrand",
+			"Umherirrender"
 		]
 	},
-	"solrstore-desc": "{{desc|name=Solr Store|url=http://www.mediawiki.org/wiki/Extension:SolrStore}}",
+	"solrstore-desc": "{{desc|name=Solr Store|url=https://www.mediawiki.org/wiki/Extension:SolrStore}}",
 	"solrsearch": "{{doc-special|SolrSearch}}\nShould probably be the same as message {{msg-mw|solrstore-searchFieldSets}}.",
 	"solrsearch-title": "Used as page title, if the fieldset name is not empty.\n\nThis message is followed by \": \" and the fieldset name.\n{{Identical|Search}}",
 	"solrstore-error": "Currently we have just One Error Message, \"Error: Please Check your Query\"",
