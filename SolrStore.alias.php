@@ -25,6 +25,11 @@ $specialPageAliases['arz'] = array(
 	'solrsearch' => array( 'تدوير_سولر', 'خاص-تدوير_سولر' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'solrsearch' => array( 'سولر_ئی_گشتین' ),
+);
+
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'solrsearch' => array( 'Solr-Suche' ),
