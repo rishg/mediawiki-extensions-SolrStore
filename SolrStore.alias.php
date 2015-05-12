@@ -20,7 +20,7 @@ $specialPageAliases['ar'] = array(
 	'solrsearch' => array( 'بحث_سولر', 'خاص_بحث_سولر' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'solrsearch' => array( 'تدوير_سولر', 'خاص-تدوير_سولر' ),
 );
