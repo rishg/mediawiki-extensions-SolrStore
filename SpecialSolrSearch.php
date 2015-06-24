@@ -550,6 +550,9 @@ class SpecialSolrSearch extends SpecialPage {
 		return $out . $this->didYouMeanHtml;
 	}
 
+	protected function getGroupName() {
+		return 'smw_group';
+	}
 }
 
 ?>

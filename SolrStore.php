@@ -59,7 +59,6 @@ $wgAutoloadClasses[ 'SolrSearchTemplateLoader' ]	= $dir . '/SolrSearchTemplateLo
 
 // Specialpage
 $wgSpecialPages[ 'SolrSearch' ]			= 'SpecialSolrSearch'; # Tell MediaWiki about the new special page and its class name
-$wgSpecialPageGroups[ 'SolrSearch' ]	= 'smw_group';
 
 
 // original store
