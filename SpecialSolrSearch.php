@@ -248,9 +248,9 @@ class SpecialSolrSearch extends SpecialPage {
 			}
 			$prevnext = wfViewPrevNext(
 					$this->offset, $this->limit, SpecialPage::getTitleFor( 'SolrSearch/' . $fieldSet->mName ), wfArrayToCGI( $fieldSet->mFields ), max( $titleMatchesNum, $textMatchesNum ) < $this->limit );
-			wfRunHooks( 'SpecialSolrSearchResults', array( $fieldSet, &$titleMatches, &$textMatches ) );
+			Hooks::run( 'SpecialSolrSearchResults', array( $fieldSet, &$titleMatches, &$textMatches ) );
 		} else {
-			wfRunHooks( 'SpecialSolrSearchNoResults', array( $fieldSet ) );
+			Hooks::run( 'SpecialSolrSearchNoResults', array( $fieldSet ) );
 		}
 
 		if ( $titleMatches ) {
@@ -373,7 +373,7 @@ class SpecialSolrSearch extends SpecialPage {
 
 		$link_t = clone $t;
 
-		wfRunHooks( 'ShowSearchHitTitle', array( &$link_t, &$titleSnippet, $result, $fieldSets, $this ) );
+		Hooks::run( 'ShowSearchHitTitle', array( &$link_t, &$titleSnippet, $result, $fieldSets, $this ) );
 
 		$link = Linker::linkKnown(
 				$link_t, $titleSnippet
