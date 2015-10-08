@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Armando-Martin"
+			"Armando-Martin",
+			"Macofe"
 		]
 	},
 	"solrstore-desc": "Buscar propiedades semánticas con la potencia de un motor de búsqueda de texto completo",
 	"solrsearch": "SolrSearch",
 	"solrsearch-title": "Buscar",
-	"solrstore-error": "Error: Compruebe su consulta.",
+	"solrstore-error": "Error: comprueba la consulta.",
 	"solrstore-searchFieldSets": "SolrSearch",
-	"solrstore-searchFieldSets-select": "Por favor, seleccione un conjunto de búsquedas SearchSet",
-	"solrstore-searchFieldSets-title": "SolrSearch: Seleccione SearchSet"
+	"solrstore-searchFieldSets-select": "Selecciona un conjunto de búsqueda",
+	"solrstore-searchFieldSets-title": "SolrSearch: selección de un conjunto de búsqueda"
 }
