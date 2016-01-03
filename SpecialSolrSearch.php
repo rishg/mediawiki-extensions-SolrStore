@@ -76,12 +76,12 @@ class SpecialSolrSearch extends SpecialPage {
 		global $wgOut, $wgUser, $wgScript, $wgSolrFields;
 		wfProfileIn( __METHOD__ );
 
-		$wgOut->setPageTitle( wfMsg( 'solrstore-searchFieldSets-title' ) );
-		$wgOut->setHTMLTitle( wfMsg( 'pagetitle', wfMsg( 'solrstore-searchFieldSets-title', 'SolrSearch: Select FieldSet' ) ) );
+		$wgOut->setPageTitle( $this->msg( 'solrstore-searchFieldSets-title' ) );
+		$wgOut->setHTMLTitle( $this->msg( 'pagetitle', $this->msg( 'solrstore-searchFieldSets-title', 'SolrSearch: Select FieldSet' )->text() ) );
 
 		$wgOut->setArticleRelated( false );
 		$wgOut->addHtml( '<div class="solrsearch-fieldset">' );
-		$wgOut->addHtml( wfMsg( 'solrstore-searchFieldSets-select' ) );
+		$wgOut->addHtml( $this->msg( 'solrstore-searchFieldSets-select' )->escaped() );
 		$wgOut->addHtml( '<ul>' );
 
 		//TODO: If no SearchSets exist, provide a shot Manual how to create some!
@@ -170,7 +170,7 @@ class SpecialSolrSearch extends SpecialPage {
 			#Todo: Catch different Exceptions not just one for all
 			$textMatches = false;
 			$titleMatches = false;
-			$wgOut->addHTML( '<p class="solr-error">' . wfMsg( 'solrstore-error' ) . '<p\>' );
+			$wgOut->addHTML( '<p class="solr-error">' . $this->msg( 'solrstore-error' )->escaped() . '<p\>' );
 			if ( $wgSolrDebug ) {
 				$wgOut->addHTML( '<p class="solr-error">' . $exc . '<p\>' );
 			}
@@ -203,7 +203,7 @@ class SpecialSolrSearch extends SpecialPage {
 
 		// Sometimes the search engine knows there are too many hits
 		if ( $titleMatches instanceof SearchResultTooMany ) {
-			$wgOut->addWikiText( '==' . wfMsg( 'toomanymatches' ) . "==\n" );
+			$wgOut->addWikiText( '==' . $this->msg( 'toomanymatches' )->text() . "==\n" );
 			wfProfileOut( __METHOD__ );
 			return;
 		}
@@ -315,8 +315,8 @@ class SpecialSolrSearch extends SpecialPage {
 		global $wgOut;
 
 		if ( !empty( $fieldSet ) ) {
-			$wgOut->setPageTitle( wfMsg( 'solrsearch-title' ) . ': ' . $fieldSet->getName() );
-			$wgOut->setHTMLTitle( wfMsg( 'pagetitle', wfMsg( 'solrsearch', $fieldSet->getName() ) ) );
+			$wgOut->setPageTitle( $this->msg( 'solrsearch-title' )->text() . ': ' . $fieldSet->getName() );
+			$wgOut->setHTMLTitle( $this->msg( 'pagetitle', $this->msg( 'solrsearch', $fieldSet->getName() )->text() ) );
 		}
 		$wgOut->setArticleRelated( false );
 		$wgOut->setRobotPolicy( 'noindex,nofollow' );
@@ -409,7 +409,7 @@ class SpecialSolrSearch extends SpecialPage {
 				$redirectText = null;
 
 			$redirect = "<span class='searchalttitle'>" .
-					wfMsg( 'search-redirect', Linker::linkKnown( $redirectTitle, $redirectText ) ) .
+					$this->msg( 'search-redirect', Linker::linkKnown( $redirectTitle, $redirectText ) )->escaped() .
 					"</span>";
 		}
 
@@ -421,7 +421,7 @@ class SpecialSolrSearch extends SpecialPage {
 				$sectionText = null;
 
 			$section = "<span class='searchalttitle'>" .
-					wfMsg( 'search-section', Linker::linkKnown( $sectionTitle, $sectionText ) ) .
+					$this->msg( 'search-section', Linker::linkKnown( $sectionTitle, $sectionText ) )->escaped() .
 					"</span>";
 		}
 
@@ -434,18 +434,18 @@ class SpecialSolrSearch extends SpecialPage {
 			$score = '';
 		} else {
 			$percent = sprintf( '%2.1f', $result->getScore() * 10 ); // * 100
-			$score = wfMsg( 'search-result-score', $wgLang->formatNum( $percent ) ) . ' - ';
+			$score = $this->msg( 'search-result-score', $wgLang->formatNum( $percent ) )->text() . ' - ';
 		}
 
 		// format description
 		$byteSize = $result->getByteSize();
 		$wordCount = $result->getWordCount();
 		$timestamp = $result->getTimestamp();
-		$size = wfMsgExt( 'search-result-size', array( 'parsemag', 'escape' ), Linker::formatSize( $byteSize ), $wgLang->formatNum( $wordCount ) );
+		$size = $this->msg( 'search-result-size', Linker::formatSize( $byteSize ) )->numParams( $wordCount )->escaped();
 
 		if ( $t->getNamespace() == NS_CATEGORY ) {
 			$cat = Category::newFromTitle( $t );
-			$size = wfMsgExt( 'search-result-category-size', array( 'parsemag', 'escape' ), $wgLang->formatNum( $cat->getPageCount() ), $wgLang->formatNum( $cat->getSubcatCount() ), $wgLang->formatNum( $cat->getFileCount() ) );
+			$size = $this->msg( 'search-result-category-size' )->numParams( $cat->getPageCount(), $cat->getSubcatCount(), $cat->getFileCount() )->escaped();
 		}
 
 		$date = $wgLang->timeanddate( $timestamp );
@@ -454,8 +454,8 @@ class SpecialSolrSearch extends SpecialPage {
 		$related = '';
 		if ( $result->hasRelated() ) {
 			$st = SpecialPage::getTitleFor( 'SolrSearch' );
-			$stParams = array( 'solrsearch'=>wfMsgForContent( 'searchrelated' ) . ':' . $t->getPrefixedText() );
-			$related = ' -- ' . Linker::linkKnown( $st, wfMsg( 'search-relatedarticle' ), array( ), $stParams );
+			$stParams = array( 'solrsearch'=>$this->msg( 'searchrelated' )->inContentLanguage()->text() . ':' . $t->getPrefixedText() );
+			$related = ' -- ' . Linker::linkKnown( $st, $this->msg( 'search-relatedarticle' )->text(), array( ), $stParams );
 		}
 
 		// Include a thumbnail for media files...
@@ -465,7 +465,7 @@ class SpecialSolrSearch extends SpecialPage {
 			if ( $img ) {
 				$thumb = $img->transform( array( 'width'=>120, 'height'=>120 ) );
 				if ( $thumb ) {
-					$desc = wfMsg( 'parentheses', $img->getShortDesc() );
+					$desc = $this->msg( 'parentheses', $img->getShortDesc() )->escaped();
 					wfProfileOut( __METHOD__ );
 					// Float doesn't seem to interact well with the bullets.
 					// Table messes up vertical alignment of the bullets.
@@ -503,8 +503,8 @@ class SpecialSolrSearch extends SpecialPage {
 		// Results-info
 		if ( $resultsShown > 0 ) {
 			if ( $totalNum > 0 ) {
-				$top = wfMsgExt( 'showingresultsheader', array( 'parseinline' ), $wgLang->formatNum( $this->offset + 1 ), $wgLang->formatNum( $this->offset + $resultsShown ), $wgLang->formatNum( $totalNum ), $wgLang->formatNum( $resultsShown )
-				);
+				$top = $this->msg( 'showingresultsheader', $wgLang->formatNum( $this->offset + 1 ), $wgLang->formatNum( $this->offset + $resultsShown ), $wgLang->formatNum( $totalNum ), $wgLang->formatNum( $resultsShown )
+				)->parse();
 			} elseif ( $resultsShown >= $this->limit ) {
 				$top = wfShowingResults( $this->offset, $this->limit );
 			} else {
@@ -546,7 +546,7 @@ class SpecialSolrSearch extends SpecialPage {
 			$out .= '</td></tr>';
 		}
 		$out .= '<table>';
-		$out .= Xml::submitButton( wfMsg( 'searchbutton' ) ) . "\n";
+		$out .= Xml::submitButton( $this->msg( 'searchbutton' )->text() ) . "\n";
 		return $out . $this->didYouMeanHtml;
 	}
 

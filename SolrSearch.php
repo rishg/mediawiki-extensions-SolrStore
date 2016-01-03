@@ -102,7 +102,7 @@ class SolrSearch extends SearchEngine {
 		$inquotes = false;
 
 // "search everything" keyword
-		$allkeyword = wfMsgForContent( 'searchall' );
+		$allkeyword = wfMessage( 'searchall' )->inContentLanguage()->text();
 
 		$qlen = strlen( $query );
 
@@ -113,7 +113,7 @@ class SolrSearch extends SearchEngine {
 		}
 
 // check if this is query for related articles
-		$relatedkey = wfMsgForContent( 'searchrelated' ) . ':';
+		$relatedkey = wfMessage( 'searchrelated' )->inContentLanguage->text() . ':';
 		if ( $wgSolrUseRelated && strncmp( $query, $relatedkey, strlen( $relatedkey ) ) == 0 ) {
 			$this->related = true;
 			list( $dummy, $ret ) = explode( ':', $query, 2 );
