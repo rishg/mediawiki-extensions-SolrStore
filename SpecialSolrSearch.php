@@ -163,7 +163,7 @@ class SpecialSolrSearch extends SpecialPage {
 				);
 
 				$this->didYouMeanHtml = '<div class="searchdidyoumean">'
-						. wfMsg( 'search-suggest', $suggestLink )
+						. $this->msg( 'search-suggest', $suggestLink )->escaped()
 						. '</div>';
 			}
 		} catch ( Exception $exc ) {
